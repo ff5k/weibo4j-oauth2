@@ -104,8 +104,6 @@ public class Friendships extends Weibo {
 	 *            需要获取共同关注关系的用户UID
 	 * @param suid
 	 *            需要获取共同关注关系的用户UID，默认为当前登录用户
-	 * @param count
-	 *            单页返回的记录条数，默认为50
 	 * @param page
 	 *            返回结果的页码，默认为1
 	 * @return list of the user's follow
@@ -170,8 +168,6 @@ public class Friendships extends Weibo {
 	 * 
 	 * @param uid
 	 *            需要获取双向关注列表的用户UID
-	 * @param count
-	 *            单页返回的记录条数，默认为50。
 	 * @param page
 	 *            返回结果的页码，默认为1。
 	 * @param sort
@@ -238,8 +234,6 @@ public class Friendships extends Weibo {
 	 * 
 	 * @param uid
 	 *            需要获取双向关注列表的用户UID
-	 * @param count
-	 *            单页返回的记录条数，默认为50。
 	 * @param page
 	 *            返回结果的页码，默认为1。
 	 * @param sort
@@ -301,8 +295,8 @@ public class Friendships extends Weibo {
 	/**
 	 * 获取用户关注的用户UID列表
 	 * 
-	 * @param uid
-	 *            需要查询的用户UID
+	 * @param screen_name
+	 *            需要查询的用户昵称
 	 * @return ids
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -460,8 +454,8 @@ public class Friendships extends Weibo {
 	/**
 	 * 获取用户的粉丝列表
 	 * 
-	 * @param screen_name
-	 *            需要查询的用户昵称
+	 * @param uid
+	 *            需要查询的用户UID
 	 * @return list of users
 	 * @throws WeiboException
 	 *             when Weibo service or network is unavailable
@@ -479,8 +473,8 @@ public class Friendships extends Weibo {
 	/**
 	 * 获取用户的粉丝列表
 	 * 
-	 * @param screen_name
-	 *            需要查询的用户昵称
+	 * @param uid
+	 *            需要查询的用户UID
 	 * @param count
 	 *            单页返回的记录条数，默认为500，最大不超过5000
 	 * @param cursor
