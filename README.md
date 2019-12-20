@@ -7,7 +7,7 @@ maven坐标
 		<dependency>
 			<groupId>com.ff5k</groupId>
 			<artifactId>weibo4j-oauth2</artifactId>
-			<version>3.1.1-SNAPSHOT</version>
+			<version>3.1.1</version>
 		</dependency>
 ```
 
