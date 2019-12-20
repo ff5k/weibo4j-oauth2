@@ -11,10 +11,21 @@ import weibo4j.org.json.JSONException;
 import weibo4j.org.json.JSONObject;
 import weibo4j.util.WeiboConfig;
 
+/**
+ * <p>Trend class.</p>
+ *
+ * @author user1
+ * @version $Id: $Id
+ */
 public class Trend extends Weibo {
 
 	private static final long serialVersionUID = 903299515334415487L;
 
+	/**
+	 * <p>Constructor for Trend.</p>
+	 *
+	 * @param access_token a {@link java.lang.String} object.
+	 */
 	public Trend(String access_token) {
 		this.access_token = access_token;
 	}
@@ -22,11 +33,11 @@ public class Trend extends Weibo {
 	/*----------------------------话题接口----------------------------------------*/
 	/**
 	 * 获取某人的话题列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要获取话题的用户的UID
 	 * @return list of the userTrend
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @see http://open.weibo.com/wiki/2/trends
@@ -41,13 +52,13 @@ public class Trend extends Weibo {
 
 	/**
 	 * 获取某人的话题列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要获取话题的用户的UID
 	 * @param page
 	 *            返回结果的页码，默认为1
 	 * @return list of the userTrend
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @see http://open.weibo.com/wiki/2/trends
@@ -63,14 +74,13 @@ public class Trend extends Weibo {
 
 	/**
 	 * 判断当前用户是否关注某话题
-	 * 
+	 *
 	 * @param trend_name
 	 *            话题关键字，必须做URLencode
 	 * @return jsonobject
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
-	 * @throws JSONException
 	 * @see http://open.weibo.com/wiki/2/trends/is_follow
 	 * @since JDK 1.5
 	 */
@@ -83,14 +93,11 @@ public class Trend extends Weibo {
 
 	/**
 	 * 返回最近一小时内的热门话题
-	 * 
-	 * @param base_app
-	 *            是否只获取当前应用的数据。0为否（所有数据），1为是（仅当前应用），默认为0
+	 *
 	 * @return list of trends
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
-	 * @throws JSONException
 	 * @see http://open.weibo.com/wiki/2/trends/hourly
 	 * @since JDK 1.5
 	 */
@@ -100,6 +107,13 @@ public class Trend extends Weibo {
 				access_token));
 	}
 
+	/**
+	 * <p>getTrendsHourly.</p>
+	 *
+	 * @param base_app a {@link java.lang.Integer} object.
+	 * @return a {@link java.util.List} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public List<Trends> getTrendsHourly(Integer base_app) throws WeiboException {
 		return Trends.constructTrendsList(client.get(
 				WeiboConfig.getValue("baseURL") + "trends/hourly.json",
@@ -109,14 +123,11 @@ public class Trend extends Weibo {
 
 	/**
 	 * 返回最近一天内的热门话题
-	 * 
-	 * @param base_app
-	 *            是否只获取当前应用的数据。0为否（所有数据），1为是（仅当前应用），默认为0
+	 *
 	 * @return list of trends
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
-	 * @throws JSONException
 	 * @see http://open.weibo.com/wiki/2/trends/daily
 	 * @since JDK 1.5
 	 */
@@ -126,6 +137,13 @@ public class Trend extends Weibo {
 				access_token));
 	}
 
+	/**
+	 * <p>getTrendsDaily.</p>
+	 *
+	 * @param base_app a {@link java.lang.Integer} object.
+	 * @return a {@link java.util.List} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public List<Trends> getTrendsDaily(Integer base_app) throws WeiboException {
 		return Trends.constructTrendsList(client.get(
 				WeiboConfig.getValue("baseURL") + "trends/daily.json",
@@ -135,14 +153,11 @@ public class Trend extends Weibo {
 
 	/**
 	 * 返回最近一周内的热门话题
-	 * 
-	 * @param base_app
-	 *            是否只获取当前应用的数据。0为否（所有数据），1为是（仅当前应用），默认为0
+	 *
 	 * @return list of trends
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
-	 * @throws JSONException
 	 * @see http://open.weibo.com/wiki/2/trends/weekly
 	 * @since JDK 1.5
 	 */
@@ -152,6 +167,13 @@ public class Trend extends Weibo {
 				access_token));
 	}
 
+	/**
+	 * <p>getTrendsWeekly.</p>
+	 *
+	 * @param base_app a {@link java.lang.Integer} object.
+	 * @return a {@link java.util.List} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public List<Trends> getTrendsWeekly(Integer base_app) throws WeiboException {
 		return Trends.constructTrendsList(client.get(
 				WeiboConfig.getValue("baseURL") + "trends/weekly.json",
@@ -161,14 +183,13 @@ public class Trend extends Weibo {
 
 	/**
 	 * 关注某话题
-	 * 
+	 *
 	 * @param trend_name
 	 *            要关注的话题关键词。
 	 * @return UserTrend
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
-	 * @throws JSONException
 	 * @see http://open.weibo.com/wiki/2/trends/follow
 	 * @since JDK 1.5
 	 */
@@ -181,14 +202,13 @@ public class Trend extends Weibo {
 
 	/**
 	 * 取消对某话题的关注
-	 * 
+	 *
 	 * @param trend_id
 	 *            要取消关注的话题ID
 	 * @return jsonobject
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
-	 * @throws JSONException
 	 * @see http://open.weibo.com/wiki/2/trends/destroy
 	 * @since JDK 1.5
 	 */

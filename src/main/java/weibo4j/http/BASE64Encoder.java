@@ -27,8 +27,10 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package weibo4j.http;
 /**
  * A utility class encodes byte array into String using Base64 encoding scheme.
+ *
  * @see weibo4j.http.HttpClient
  * @author Yusuke Yamamoto - yusuke at mac.com
+ * @version $Id: $Id
  */
 public class BASE64Encoder {
     private static final char last2byte = (char) Integer.parseInt("00000011", 2);
@@ -39,9 +41,18 @@ public class BASE64Encoder {
     private static final char lead2byte = (char) Integer.parseInt("11000000", 2);
     private static final char[] encodeTable = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
 
+    /**
+     * <p>Constructor for BASE64Encoder.</p>
+     */
     public BASE64Encoder() {
     }
 
+    /**
+     * <p>encode.</p>
+     *
+     * @param from an array of {@link byte} objects.
+     * @return a {@link java.lang.String} object.
+     */
     public static  String encode(byte[] from) {
         StringBuffer to = new StringBuffer((int) (from.length * 1.34) + 3);
         int num = 0;

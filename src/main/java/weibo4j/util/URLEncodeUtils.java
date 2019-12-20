@@ -4,8 +4,10 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.BitSet;
 /**
+ * <p>URLEncodeUtils class.</p>
+ *
  * @author sinaWeibo
- * 
+ * @version $Id: $Id
  */
 public class URLEncodeUtils {
 
@@ -71,9 +73,9 @@ public class URLEncodeUtils {
 
 	/**
 	 * 判断段落文本是否被urlencode过
-	 * 
-	 * @param str
-	 * @return
+	 *
+	 * @param str a {@link java.lang.String} object.
+	 * @return a boolean.
 	 */
 	public static final boolean isURLEncoded(String str) {
 		if (str==null||"".equals(str)) {
@@ -98,6 +100,12 @@ public class URLEncodeUtils {
 		return true;
 	}
 
+	/**
+	 * <p>encodeURL.</p>
+	 *
+	 * @param str a {@link java.lang.String} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	public static final String encodeURL(String str) {
 		try {
 			return URLEncoder.encode(str, "utf-8");
@@ -105,6 +113,12 @@ public class URLEncodeUtils {
 			throw new RuntimeException(e);
 		}
 	}
+	/**
+	 * <p>decodeURL.</p>
+	 *
+	 * @param str a {@link java.lang.String} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	public static final String decodeURL(String str) {
 		try {
 			return URLDecoder.decode(str, "utf-8");

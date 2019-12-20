@@ -34,8 +34,9 @@ import java.util.List;
 
 /**
  * 搜索条件
- * @author SinaWeibo
  *
+ * @author SinaWeibo
+ * @version $Id: $Id
  */
 public class Query {
     private String q; //搜索的关键字。
@@ -59,166 +60,372 @@ public class Query {
     private boolean needcount=false;//返回结果中是否包含返回记录数。true则返回搜索结果记录数。
     private String geocode=null;//返回指定经纬度附近的信息。经纬度参数格式是“纬度，经度，半径”，半径支持km（公里），m（米），mi（英里）。格式需要URL Encode编码
     
+    /**
+     * <p>Setter for the field <code>q</code>.</p>
+     *
+     * @param q a {@link java.lang.String} object.
+     */
     public void setQ(String q) {
 		this.q = q;
 //		if(!URLEncodeUtils.isURLEncoded(q))
 //		q=URLEncodeUtils.encodeURL(q);
 	}
     
+	/**
+	 * <p>Getter for the field <code>q</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getQ() {
 		return q;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>snick</code>.</p>
+	 *
+	 * @return a {@link java.lang.Boolean} object.
+	 */
 	public Boolean getSnick() {
 		return snick;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>snick</code>.</p>
+	 *
+	 * @param snick a {@link java.lang.Boolean} object.
+	 */
 	public void setSnick(Boolean snick) {
 		this.snick = snick;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>rpp</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getRpp() {
 		return rpp;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>rpp</code>.</p>
+	 *
+	 * @param rpp a int.
+	 */
 	public void setRpp(int rpp) {
 		this.rpp = rpp;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>sdomain</code>.</p>
+	 *
+	 * @return a {@link java.lang.Boolean} object.
+	 */
 	public Boolean getSdomain() {
 		return sdomain;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>sdomain</code>.</p>
+	 *
+	 * @param sdomain a {@link java.lang.Boolean} object.
+	 */
 	public void setSdomain(Boolean sdomain) {
 		this.sdomain = sdomain;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>sintro</code>.</p>
+	 *
+	 * @return a {@link java.lang.Boolean} object.
+	 */
 	public Boolean getSintro() {
 		return sintro;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>sintro</code>.</p>
+	 *
+	 * @param sintro a {@link java.lang.Boolean} object.
+	 */
 	public void setSintro(Boolean sintro) {
 		this.sintro = sintro;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>province</code>.</p>
+	 *
+	 * @return a {@link java.lang.Integer} object.
+	 */
 	public Integer getProvince() {
 		return province;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>province</code>.</p>
+	 *
+	 * @param province a {@link java.lang.Integer} object.
+	 */
 	public void setProvince(Integer province) {
 		this.province = province;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>city</code>.</p>
+	 *
+	 * @return a {@link java.lang.Integer} object.
+	 */
 	public Integer getCity() {
 		return city;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>city</code>.</p>
+	 *
+	 * @param city a {@link java.lang.Integer} object.
+	 */
 	public void setCity(Integer city) {
 		this.city = city;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>gender</code>.</p>
+	 *
+	 * @return a {@link weibo4j.model.Gender} object.
+	 */
 	public Gender getGender() {
 		return gender;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>gender</code>.</p>
+	 *
+	 * @param gender a {@link weibo4j.model.Gender} object.
+	 */
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>comorsch</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getComorsch() {
 		return comorsch;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>comorsch</code>.</p>
+	 *
+	 * @param comorsch a {@link java.lang.String} object.
+	 */
 	public void setComorsch(String comorsch) {
 		this.comorsch = comorsch;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>sort</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getSort() {
 		return sort;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>sort</code>.</p>
+	 *
+	 * @param sort a int.
+	 */
 	public void setSort(int sort) {
 		this.sort = sort;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>page</code>.</p>
+	 *
+	 * @return a {@link java.lang.Integer} object.
+	 */
 	public Integer getPage() {
 		return page;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>page</code>.</p>
+	 *
+	 * @param page a {@link java.lang.Integer} object.
+	 */
 	public void setPage(Integer page) {
 		this.page = page;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>count</code>.</p>
+	 *
+	 * @return a {@link java.lang.Integer} object.
+	 */
 	public Integer getCount() {
 		return count;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>count</code>.</p>
+	 *
+	 * @param count a {@link java.lang.Integer} object.
+	 */
 	public void setCount(Integer count) {
 		this.count = count;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>base_app</code>.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean getBase_app() {
 		return base_app;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>base_app</code>.</p>
+	 *
+	 * @param baseApp a boolean.
+	 */
 	public void setBase_app(boolean baseApp) {
 		base_app = baseApp;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>filter_ori</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getFilter_ori() {
 		return filter_ori;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>filter_ori</code>.</p>
+	 *
+	 * @param filterOri a int.
+	 */
 	public void setFilter_ori(int filterOri) {
 		filter_ori = filterOri;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>filter_pic</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getFilter_pic() {
 		return filter_pic;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>filter_pic</code>.</p>
+	 *
+	 * @param filterPic a int.
+	 */
 	public void setFilter_pic(int filterPic) {
 		filter_pic = filterPic;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>fuid</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getFuid() {
 		return fuid;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>fuid</code>.</p>
+	 *
+	 * @param fuid a {@link java.lang.Integer} object.
+	 */
 	public void setFuid(Integer fuid) {
 		this.fuid = fuid;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>starttime</code>.</p>
+	 *
+	 * @return a {@link java.util.Date} object.
+	 */
 	public Date getStarttime() {
 		return starttime;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>starttime</code>.</p>
+	 *
+	 * @param starttime a {@link java.util.Date} object.
+	 */
 	public void setStarttime(Date starttime) {
 		this.starttime = starttime;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>endtime</code>.</p>
+	 *
+	 * @return a {@link java.util.Date} object.
+	 */
 	public Date getEndtime() {
 		return endtime;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>endtime</code>.</p>
+	 *
+	 * @param endtime a {@link java.util.Date} object.
+	 */
 	public void setEndtime(Date endtime) {
 		this.endtime = endtime;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>needcount</code>.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean getNeedcount() {
 		return needcount;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>needcount</code>.</p>
+	 *
+	 * @param needcount a boolean.
+	 */
 	public void setNeedcount(boolean needcount) {
 		this.needcount = needcount;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>geocode</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getGeocode() {
 		return geocode;
 	}
+	/**
+	 * <p>Setter for the field <code>geocode</code>.</p>
+	 *
+	 * @param geocode a {@link java.lang.String} object.
+	 */
 	public void setGeocode(String geocode) {
 		this.geocode = geocode;
 	}
+	/**
+	 * <p>getParameters.</p>
+	 *
+	 * @return an array of {@link weibo4j.model.PostParameter} objects.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public PostParameter[] getParameters() throws WeiboException{
 		List<PostParameter> list= new ArrayList<PostParameter>();
 		Class<Query> clz=Query.class;

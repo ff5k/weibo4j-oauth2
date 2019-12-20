@@ -21,12 +21,14 @@ import org.apache.commons.httpclient.params.HttpConnectionParams;
 import org.apache.commons.httpclient.protocol.ProtocolSocketFactory;
 
 /**
-Provide a custom socket factory that implements org.apache.commons.httpclient.protocol.ProtocolSocketFactory interface. 
-The socket factory is responsible for opening a socket to the target server using either the standard or a third party
-SSL library and performing any required initialization such as performing the connection handshake. Generally the initialization 
-is performed automatically when the socket is created. 
-@author sinaWeibo
-*/
+ *Provide a custom socket factory that implements org.apache.commons.httpclient.protocol.ProtocolSocketFactory interface.
+ *The socket factory is responsible for opening a socket to the target server using either the standard or a third party
+ *SSL library and performing any required initialization such as performing the connection handshake. Generally the initialization
+ *is performed automatically when the socket is created.
+ *@author sinaWeibo
+ *
+ * @version $Id: $Id
+ */
 public class MySSLSocketFactory implements ProtocolSocketFactory {
 	private SSLContext sslcontext = null;
 	private SSLContext createSSLContext() {
@@ -51,23 +53,37 @@ public class MySSLSocketFactory implements ProtocolSocketFactory {
 		return this.sslcontext;
 	}
 
+	/**
+	 * <p>createSocket.</p>
+	 *
+	 * @param socket a {@link java.net.Socket} object.
+	 * @param host a {@link java.lang.String} object.
+	 * @param port a int.
+	 * @param autoClose a boolean.
+	 * @return a {@link java.net.Socket} object.
+	 * @throws java.io.IOException if any.
+	 * @throws java.net.UnknownHostException if any.
+	 */
 	public Socket createSocket(Socket socket, String host, int port,
 			boolean autoClose) throws IOException, UnknownHostException {
 		return getSSLContext().getSocketFactory().createSocket(socket, host,
 				port, autoClose);
 	}
 
+	/** {@inheritDoc} */
 	public Socket createSocket(String host, int port) throws IOException,
 			UnknownHostException {
 		return getSSLContext().getSocketFactory().createSocket(host, port);
 	}
 
+	/** {@inheritDoc} */
 	public Socket createSocket(String host, int port, InetAddress clientHost,
 			int clientPort) throws IOException, UnknownHostException {
 		return getSSLContext().getSocketFactory().createSocket(host, port,
 				clientHost, clientPort);
 	}
 
+	/** {@inheritDoc} */
 	public Socket createSocket(String host, int port, InetAddress localAddress,
 			int localPort, HttpConnectionParams params) throws IOException,
 			UnknownHostException, ConnectTimeoutException {

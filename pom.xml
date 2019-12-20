@@ -6,7 +6,7 @@
 
     <groupId>com.ff5k</groupId>
     <artifactId>weibo4j-oauth2</artifactId>
-    <version>3.1.1-SNAPSHOT</version>
+    <version>3.1.1</version>
 
     <name>weibo4j-oauth2</name>
     <description>sina weibo sdk</description>
@@ -125,15 +125,16 @@
                 </executions>
             </plugin>
             <!--生产javadoc插件-->
-         <!--   <plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.1.1</version>
                 <configuration>
-                    &lt;!&ndash;<aggregate>true</aggregate>&ndash;&gt;
+                    <!--<aggregate>true</aggregate>-->
                     <charset>UTF-8</charset>
                     <encoding>UTF-8</encoding>
                     <docencoding>UTF-8</docencoding>
+                    <failOnError>false</failOnError>
                 </configuration>
                 <executions>
                     <execution>
@@ -143,7 +144,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>-->
+            </plugin>
             <!--gpg加密插件-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

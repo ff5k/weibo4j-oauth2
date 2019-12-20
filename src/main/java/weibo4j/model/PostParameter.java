@@ -34,7 +34,9 @@ import java.util.List;
 
 /**
  * A data class representing HTTP Post parameter
+ *
  * @author Yusuke Yamamoto - yusuke at mac.com
+ * @version $Id: $Id
  */
 public class PostParameter implements java.io.Serializable{
     String name;
@@ -43,42 +45,92 @@ public class PostParameter implements java.io.Serializable{
     
     private static final long serialVersionUID = -8708108746980739212L;
 
+    /**
+     * <p>Constructor for PostParameter.</p>
+     *
+     * @param name a {@link java.lang.String} object.
+     * @param value a {@link java.lang.String} object.
+     */
     public PostParameter(String name, String value) {
         this.name = name;
         this.value = value;
     }
     
+    /**
+     * <p>Constructor for PostParameter.</p>
+     *
+     * @param name a {@link java.lang.String} object.
+     * @param value a long.
+     */
     public PostParameter(String name, long value) {
         this.name = name;
         this.value = String.valueOf(value);
     }
 
+    /**
+     * <p>Constructor for PostParameter.</p>
+     *
+     * @param name a {@link java.lang.String} object.
+     * @param value a double.
+     */
     public PostParameter(String name, double value) {
         this.name = name;
         this.value = String.valueOf(value);
     }
 
+    /**
+     * <p>Constructor for PostParameter.</p>
+     *
+     * @param name a {@link java.lang.String} object.
+     * @param value a int.
+     */
     public PostParameter(String name, int value) {
         this.name = name;
         this.value = String.valueOf(value);
     }
 
+    /**
+     * <p>Constructor for PostParameter.</p>
+     *
+     * @param name a {@link java.lang.String} object.
+     * @param file a {@link java.io.File} object.
+     */
     public PostParameter(String name, File file) {
         this.name = name;
         this.file = file;
     }
     
+    /**
+     * <p>Getter for the field <code>name</code>.</p>
+     *
+     * @return a {@link java.lang.String} object.
+     */
     public String getName(){
         return name;
     }
+    /**
+     * <p>Getter for the field <code>value</code>.</p>
+     *
+     * @return a {@link java.lang.String} object.
+     */
     public String getValue(){
         return value;
     }
 
+    /**
+     * <p>Getter for the field <code>file</code>.</p>
+     *
+     * @return a {@link java.io.File} object.
+     */
     public File getFile() {
         return file;
     }
 
+    /**
+     * <p>isFile.</p>
+     *
+     * @return a boolean.
+     */
     public boolean isFile(){
         return null != file;
     }
@@ -89,7 +141,8 @@ public class PostParameter implements java.io.Serializable{
     private static final String OCTET = "application/octet-stream";
 
     /**
-     * 
+     * <p>getContentType.</p>
+     *
      * @return content-type
      */
     public String getContentType() {
@@ -128,6 +181,12 @@ public class PostParameter implements java.io.Serializable{
     }
     
     
+    /**
+     * <p>containsFile.</p>
+     *
+     * @param params an array of {@link weibo4j.model.PostParameter} objects.
+     * @return a boolean.
+     */
     public static boolean containsFile(PostParameter[] params) {
         boolean containsFile = false;
         if(null == params){
@@ -152,23 +211,56 @@ public class PostParameter implements java.io.Serializable{
         return containsFile;
     }
 
+    /**
+     * <p>getParameterArray.</p>
+     *
+     * @param name a {@link java.lang.String} object.
+     * @param value a {@link java.lang.String} object.
+     * @return an array of {@link weibo4j.model.PostParameter} objects.
+     */
     public static PostParameter[] getParameterArray(String name, String value) {
         return new PostParameter[]{new PostParameter(name,value)};
     }
+    /**
+     * <p>getParameterArray.</p>
+     *
+     * @param name a {@link java.lang.String} object.
+     * @param value a int.
+     * @return an array of {@link weibo4j.model.PostParameter} objects.
+     */
     public static PostParameter[] getParameterArray(String name, int value) {
         return getParameterArray(name,String.valueOf(value));
     }
 
+    /**
+     * <p>getParameterArray.</p>
+     *
+     * @param name1 a {@link java.lang.String} object.
+     * @param value1 a {@link java.lang.String} object.
+     * @param name2 a {@link java.lang.String} object.
+     * @param value2 a {@link java.lang.String} object.
+     * @return an array of {@link weibo4j.model.PostParameter} objects.
+     */
     public static PostParameter[] getParameterArray(String name1, String value1
             , String name2, String value2) {
         return new PostParameter[]{new PostParameter(name1, value1)
                 , new PostParameter(name2, value2)};
     }
+    /**
+     * <p>getParameterArray.</p>
+     *
+     * @param name1 a {@link java.lang.String} object.
+     * @param value1 a int.
+     * @param name2 a {@link java.lang.String} object.
+     * @param value2 a int.
+     * @return an array of {@link weibo4j.model.PostParameter} objects.
+     */
     public static PostParameter[] getParameterArray(String name1, int value1
             , String name2, int value2) {
         return getParameterArray(name1,String.valueOf(value1),name2,String.valueOf(value2));
     }
     
+    /** {@inheritDoc} */
     @Override
     public int hashCode() {
         int result = name.hashCode();
@@ -177,6 +269,7 @@ public class PostParameter implements java.io.Serializable{
         return result;
     }
 
+	/** {@inheritDoc} */
 	@Override
 	public boolean equals(Object obj) {
 		if (null == obj) {
@@ -197,6 +290,7 @@ public class PostParameter implements java.io.Serializable{
         return false;
     }
    
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return "PostParameter{" +
@@ -206,6 +300,12 @@ public class PostParameter implements java.io.Serializable{
                 '}';
     }
     
+    /**
+     * <p>compareTo.</p>
+     *
+     * @param o a {@link java.lang.Object} object.
+     * @return a int.
+     */
     public int compareTo(Object o) {
         int compared;
         PostParameter that = (PostParameter) o;
@@ -216,6 +316,12 @@ public class PostParameter implements java.io.Serializable{
         return compared;
     }
     
+    /**
+     * <p>encodeParameters.</p>
+     *
+     * @param httpParams an array of {@link weibo4j.model.PostParameter} objects.
+     * @return a {@link java.lang.String} object.
+     */
     public static String encodeParameters(PostParameter[] httpParams) {
         if (null == httpParams) {
             return "";

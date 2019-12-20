@@ -39,8 +39,10 @@ import weibo4j.model.WeiboException;
 import weibo4j.org.json.JSONException;
 
 /**
+ * <p>HttpClient class.</p>
+ *
  * @author sinaWeibo
- * 
+ * @version $Id: $Id
  */
 public class HttpClient implements java.io.Serializable {
 
@@ -61,6 +63,11 @@ public class HttpClient implements java.io.Serializable {
 	private String proxyAuthUser = Configuration.getProxyUser();
 	private String proxyAuthPassword = Configuration.getProxyPassword();
 
+	/**
+	 * <p>Getter for the field <code>proxyHost</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getProxyHost() {
 		return proxyHost;
 	}
@@ -68,13 +75,18 @@ public class HttpClient implements java.io.Serializable {
 	/**
 	 * Sets proxy host. System property -Dsinat4j.http.proxyHost or
 	 * http.proxyHost overrides this attribute.
-	 * 
-	 * @param proxyHost
+	 *
+	 * @param proxyHost a {@link java.lang.String} object.
 	 */
 	public void setProxyHost(String proxyHost) {
 		this.proxyHost = Configuration.getProxyHost(proxyHost);
 	}
 
+	/**
+	 * <p>Getter for the field <code>proxyPort</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getProxyPort() {
 		return proxyPort;
 	}
@@ -82,13 +94,18 @@ public class HttpClient implements java.io.Serializable {
 	/**
 	 * Sets proxy port. System property -Dsinat4j.http.proxyPort or
 	 * -Dhttp.proxyPort overrides this attribute.
-	 * 
-	 * @param proxyPort
+	 *
+	 * @param proxyPort a int.
 	 */
 	public void setProxyPort(int proxyPort) {
 		this.proxyPort = Configuration.getProxyPort(proxyPort);
 	}
 
+	/**
+	 * <p>Getter for the field <code>proxyAuthUser</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getProxyAuthUser() {
 		return proxyAuthUser;
 	}
@@ -96,13 +113,18 @@ public class HttpClient implements java.io.Serializable {
 	/**
 	 * Sets proxy authentication user. System property -Dsinat4j.http.proxyUser
 	 * overrides this attribute.
-	 * 
-	 * @param proxyAuthUser
+	 *
+	 * @param proxyAuthUser a {@link java.lang.String} object.
 	 */
 	public void setProxyAuthUser(String proxyAuthUser) {
 		this.proxyAuthUser = Configuration.getProxyUser(proxyAuthUser);
 	}
 
+	/**
+	 * <p>Getter for the field <code>proxyAuthPassword</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getProxyAuthPassword() {
 		return proxyAuthPassword;
 	}
@@ -110,8 +132,8 @@ public class HttpClient implements java.io.Serializable {
 	/**
 	 * Sets proxy authentication password. System property
 	 * -Dsinat4j.http.proxyPassword overrides this attribute.
-	 * 
-	 * @param proxyAuthPassword
+	 *
+	 * @param proxyAuthPassword a {@link java.lang.String} object.
 	 */
 	public void setProxyAuthPassword(String proxyAuthPassword) {
 		this.proxyAuthPassword = Configuration
@@ -125,10 +147,21 @@ public class HttpClient implements java.io.Serializable {
 	private MultiThreadedHttpConnectionManager connectionManager;
 	private int maxSize;
 
+	/**
+	 * <p>Constructor for HttpClient.</p>
+	 */
 	public HttpClient() {
 		this(150, 30000, 30000, 1024 * 1024);
 	}
 
+	/**
+	 * <p>Constructor for HttpClient.</p>
+	 *
+	 * @param maxConPerHost a int.
+	 * @param conTimeOutMs a int.
+	 * @param soTimeOutMs a int.
+	 * @param maxSize a int.
+	 */
 	public HttpClient(int maxConPerHost, int conTimeOutMs, int soTimeOutMs,
 			int maxSize) {
 		connectionManager = new MultiThreadedHttpConnectionManager();
@@ -172,15 +205,27 @@ public class HttpClient implements java.io.Serializable {
 
 	/**
 	 * 处理http getmethod 请求
-	 * 
+	 *
+	 * @param url a {@link java.lang.String} object.
+	 * @param token a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
 	 */
-
 	public Response get(String url, String token) throws WeiboException {
 
 		return get(url, new PostParameter[0], token);
 
 	}
 
+	/**
+	 * <p>get.</p>
+	 *
+	 * @param url a {@link java.lang.String} object.
+	 * @param params an array of {@link weibo4j.model.PostParameter} objects.
+	 * @param token a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public Response get(String url, PostParameter[] params, String token)
 			throws WeiboException {
 		log("Request:");
@@ -198,6 +243,16 @@ public class HttpClient implements java.io.Serializable {
 
 	}
 
+	/**
+	 * <p>get.</p>
+	 *
+	 * @param url a {@link java.lang.String} object.
+	 * @param params an array of {@link weibo4j.model.PostParameter} objects.
+	 * @param paging a {@link weibo4j.model.Paging} object.
+	 * @param token a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public Response get(String url, PostParameter[] params, Paging paging, String token)
 			throws WeiboException {
 		if (null != paging) {
@@ -252,8 +307,13 @@ public class HttpClient implements java.io.Serializable {
 
 	/**
 	 * 处理http deletemethod请求
+	 *
+	 * @param url a {@link java.lang.String} object.
+	 * @param params an array of {@link weibo4j.model.PostParameter} objects.
+	 * @param token a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
 	 */
-
 	public Response delete(String url, PostParameter[] params, String token)
 			throws WeiboException {
 		if (0 != params.length) {
@@ -271,15 +331,29 @@ public class HttpClient implements java.io.Serializable {
 
 	/**
 	 * 处理http post请求
-	 * 
+	 *
+	 * @param url a {@link java.lang.String} object.
+	 * @param params an array of {@link weibo4j.model.PostParameter} objects.
+	 * @param token a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
 	 */
-
 	public Response post(String url, PostParameter[] params, String token)
 			throws WeiboException {
 		return post(url, params, true, token);
 
 	}
 
+	/**
+	 * <p>post.</p>
+	 *
+	 * @param url a {@link java.lang.String} object.
+	 * @param params an array of {@link weibo4j.model.PostParameter} objects.
+	 * @param WithTokenHeader a {@link java.lang.Boolean} object.
+	 * @param token a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public Response post(String url, PostParameter[] params,
 			Boolean WithTokenHeader, String token) throws WeiboException {
 		log("Request:");
@@ -295,7 +369,13 @@ public class HttpClient implements java.io.Serializable {
 
 	/**
 	 * 支持multipart方式上传图片
-	 * 
+	 *
+	 * @param url a {@link java.lang.String} object.
+	 * @param params an array of {@link weibo4j.model.PostParameter} objects.
+	 * @param item a {@link weibo4j.http.ImageItem} object.
+	 * @param token a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
 	 */
 	public Response multPartURL(String url, PostParameter[] params,
 			ImageItem item, String token) throws WeiboException {
@@ -326,6 +406,18 @@ public class HttpClient implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * <p>multPartURL.</p>
+	 *
+	 * @param fileParamName a {@link java.lang.String} object.
+	 * @param url a {@link java.lang.String} object.
+	 * @param params an array of {@link weibo4j.model.PostParameter} objects.
+	 * @param file a {@link java.io.File} object.
+	 * @param authenticated a boolean.
+	 * @param token a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public Response multPartURL(String fileParamName, String url,
 			PostParameter[] params, File file, boolean authenticated, String token)
 			throws WeiboException {
@@ -358,10 +450,27 @@ public class HttpClient implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * <p>httpRequest.</p>
+	 *
+	 * @param method a {@link org.apache.commons.httpclient.HttpMethod} object.
+	 * @param token a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public Response httpRequest(HttpMethod method, String token) throws WeiboException {
 		return httpRequest(method, true, token);
 	}
 
+	/**
+	 * <p>httpRequest.</p>
+	 *
+	 * @param method a {@link org.apache.commons.httpclient.HttpMethod} object.
+	 * @param WithTokenHeader a {@link java.lang.Boolean} object.
+	 * @param token a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public Response httpRequest(HttpMethod method, Boolean WithTokenHeader, String token)
 			throws WeiboException {
 		InetAddress ipaddr;
@@ -418,6 +527,12 @@ public class HttpClient implements java.io.Serializable {
 
 	/*
 	 * 对parameters进行encode处理
+	 */
+	/**
+	 * <p>encodeParameters.</p>
+	 *
+	 * @param postParams an array of {@link weibo4j.model.PostParameter} objects.
+	 * @return a {@link java.lang.String} object.
 	 */
 	public static String encodeParameters(PostParameter[] postParams) {
 		StringBuffer buf = new StringBuffer();

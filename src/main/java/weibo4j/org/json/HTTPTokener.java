@@ -27,6 +27,7 @@ SOFTWARE.
 /**
  * The HTTPTokener extends the JSONTokener to provide additional methods
  * for the parsing of HTTP headers.
+ *
  * @author JSON.org
  * @version 2008-09-18
  */
@@ -34,6 +35,7 @@ public class HTTPTokener extends JSONTokener {
 
     /**
      * Construct an XMLTokener from a string.
+     *
      * @param s A source string.
      */
     public HTTPTokener(String s) {
@@ -43,7 +45,8 @@ public class HTTPTokener extends JSONTokener {
 
     /**
      * Get the next token or string. This is used in parsing HTTP headers.
-     * @throws JSONException
+     *
+     * @throws weibo4j.org.json.JSONException
      * @return A String.
      */
     public String nextToken() throws JSONException {

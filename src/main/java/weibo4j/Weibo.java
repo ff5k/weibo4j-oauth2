@@ -2,10 +2,17 @@ package weibo4j;
 
 import weibo4j.http.HttpClient;
 
+/**
+ * <p>Weibo class.</p>
+ *
+ * @author user1
+ * @version $Id: $Id
+ */
 public class Weibo implements java.io.Serializable {
 
 	private static final long serialVersionUID = 4282616848978535016L;
 
+	/** Constant <code>client</code> */
 	protected static HttpClient client = new HttpClient();
 
 //	如果希望自己设置HttpClient的各种参数，可以使用下面的构造方法

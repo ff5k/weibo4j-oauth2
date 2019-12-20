@@ -82,6 +82,7 @@ import java.util.TreeSet;
  * <li>Numbers may have the <code>0-</code> <small>(octal)</small> or
  *     <code>0x-</code> <small>(hex)</small> prefix.</li>
  * </ul>
+ *
  * @author JSON.org
  * @version 2008-09-18
  */
@@ -151,10 +152,12 @@ public class JSONObject {
     /**
      * Construct a JSONObject from a subset of another JSONObject.
      * An array of strings is used to identify the keys that should be copied.
-     * Missing keys are ignored. 
+     * Missing keys are ignored.
+     *
      * @param jo A JSONObject.
      * @param names An array of strings.
      * @exception JSONException If a value is a non-finite number or if a name is duplicated.
+     * @throws weibo4j.org.json.JSONException if any.
      */
     public JSONObject(JSONObject jo, String[] names) throws JSONException {
         this();
@@ -166,9 +169,8 @@ public class JSONObject {
 
     /**
      * Construct a JSONObject from a JSONTokener.
+     *
      * @param x A JSONTokener object containing the source string.
-     * @throws JSONException If there is a syntax error in the source string 
-     *  or a duplicated key.
      */
     public JSONObject(JSONTokener x) throws JSONException {
         this();
@@ -227,7 +229,7 @@ public class JSONObject {
 
     /**
      * Construct a JSONObject from a Map.
-     * 
+     *
      * @param map A map object that can be used to initialize the contents of
      *  the JSONObject.
      */
@@ -237,9 +239,9 @@ public class JSONObject {
 
     /**
      * Construct a JSONObject from a Map.
-     * 
+     *
      * Note: Use this constructor when the map contains <key,bean>.
-     * 
+     *
      * @param map - A map with Key-Bean data.
      * @param includeSuperClass - Tell whether to include the super class properties.
      */
@@ -282,9 +284,9 @@ public class JSONObject {
     /**
      * Construct JSONObject from the given bean. This will also create JSONObject
      * for all internal object (List, Map, Inner Objects) of the provided bean.
-     * 
+     *
      * -- See Documentation of JSONObject(Object bean) also.
-     * 
+     *
      * @param bean An object that has getter methods that should be used
      * to make a JSONObject.
      * @param includeSuperClass - Tell whether to include the super class properties.
@@ -364,12 +366,13 @@ public class JSONObject {
     		clazz.isAssignableFrom(Boolean.class);
     }
 
- 	/**
+    /**
      * Construct a JSONObject from an Object, using reflection to find the
      * public members. The resulting JSONObject's keys will be the strings
      * from the names array, and the values will be the field values associated
      * with those keys in the object. If a key is not found or not visible,
      * then it will not be copied into the new JSONObject.
+     *
      * @param object An object that has fields that should be used to make a
      * JSONObject.
      * @param names An array of strings, the names of the fields to be obtained
@@ -392,11 +395,11 @@ public class JSONObject {
     /**
      * Construct a JSONObject from a source JSON text string.
      * This is the most commonly used JSONObject constructor.
+     *
      * @param source    A string beginning
      *  with <code>{</code>&nbsp;<small>(left brace)</small> and ending
      *  with <code>}</code>&nbsp;<small>(right brace)</small>.
-     * @exception JSONException If there is a syntax error in the source 
-     *  string or a duplicated key.
+     * @throws weibo4j.org.json.JSONException if any.
      */
     public JSONObject(String source) throws JSONException {
         this(new JSONTokener(source));
@@ -409,10 +412,11 @@ public class JSONObject {
      * JSONArray is stored under the key to hold all of the accumulated values.
      * If there is already a JSONArray, then the new value is appended to it.
      * In contrast, the put method replaces the previous value.
+     *
      * @param key   A key string.
      * @param value An object to be accumulated under the key.
      * @return this.
-     * @throws JSONException If the value is an invalid number
+     * @throws weibo4j.org.json.JSONException If the value is an invalid number
      *  or if the key is null.
      */
     public JSONObject accumulate(String key, Object value)
@@ -437,10 +441,11 @@ public class JSONObject {
      * JSONObject, then the key is put in the JSONObject with its value being a
      * JSONArray containing the value parameter. If the key was already
      * associated with a JSONArray, then the value parameter is appended to it.
+     *
      * @param key   A key string.
      * @param value An object to be accumulated under the key.
      * @return this.
-     * @throws JSONException If the key is null or if the current value
+     * @throws weibo4j.org.json.JSONException If the key is null or if the current value
      *  associated with the key is not a JSONArray.
      */
     public JSONObject append(String key, Object value)
@@ -462,6 +467,7 @@ public class JSONObject {
     /**
      * Produce a string from a double. The string "null" will be returned if
      * the number is not finite.
+     *
      * @param  d A double.
      * @return A String.
      */
@@ -490,7 +496,7 @@ public class JSONObject {
      *
      * @param key   A key string.
      * @return      The object associated with the key.
-     * @throws   JSONException if the key is not found.
+     * @throws   weibo4j.org.json.JSONException if the key is not found.
      */
     /*modify by sycheng allow return null*/
     public Object get(String key) throws JSONException {
@@ -508,7 +514,7 @@ public class JSONObject {
      *
      * @param key   A key string.
      * @return      The truth.
-     * @throws   JSONException
+     * @throws   weibo4j.org.json.JSONException
      *  if the value is not a Boolean or the String "true" or "false".
      */
     public boolean getBoolean(String key) throws JSONException {
@@ -530,9 +536,10 @@ public class JSONObject {
 
     /**
      * Get the double value associated with a key.
+     *
      * @param key   A key string.
      * @return      The numeric value.
-     * @throws JSONException if the key is not found or
+     * @throws weibo4j.org.json.JSONException if the key is not found or
      *  if the value is not a Number object and cannot be converted to a number.
      */
     public double getDouble(String key) throws JSONException {
@@ -558,7 +565,7 @@ public class JSONObject {
      *
      * @param key   A key string.
      * @return      The integer value.
-     * @throws   JSONException if the key is not found or if the value cannot
+     * @throws   weibo4j.org.json.JSONException if the key is not found or if the value cannot
      *  be converted to an integer.
      */
     public int getInt(String key) throws JSONException {
@@ -574,7 +581,7 @@ public class JSONObject {
      *
      * @param key   A key string.
      * @return      A JSONArray which is the value.
-     * @throws   JSONException if the key is not found or
+     * @throws   weibo4j.org.json.JSONException if the key is not found or
      *  if the value is not a JSONArray.
      */
     public JSONArray getJSONArray(String key) throws JSONException {
@@ -593,7 +600,7 @@ public class JSONObject {
      *
      * @param key   A key string.
      * @return      A JSONObject which is the value.
-     * @throws   JSONException if the key is not found or
+     * @throws   weibo4j.org.json.JSONException if the key is not found or
      *  if the value is not a JSONObject.
      */
     public JSONObject getJSONObject(String key) throws JSONException {
@@ -613,7 +620,7 @@ public class JSONObject {
      *
      * @param key   A key string.
      * @return      The long value.
-     * @throws   JSONException if the key is not found or if the value cannot
+     * @throws   weibo4j.org.json.JSONException if the key is not found or if the value cannot
      *  be converted to a long.
      */
     public long getLong(String key) throws JSONException {
@@ -635,6 +642,7 @@ public class JSONObject {
      * Get an array of field names from a JSONObject.
      *
      * @return An array of field names, or null if there are no names.
+     * @param jo a {@link weibo4j.org.json.JSONObject} object.
      */
     public static String[] getNames(JSONObject jo) {
     	int length = jo.length();
@@ -656,6 +664,7 @@ public class JSONObject {
      * Get an array of field names from an Object.
      *
      * @return An array of field names, or null if there are no names.
+     * @param object a {@link java.lang.Object} object.
      */
     public static String[] getNames(Object object) {
     	if (object == null) {
@@ -680,7 +689,7 @@ public class JSONObject {
      *
      * @param key   A key string.
      * @return      A string which is the value.
-     * @throws   JSONException if the key is not found.
+     * @throws   weibo4j.org.json.JSONException if the key is not found.
      */
     public String getString(String key) throws JSONException {
     	Object o = get(key);
@@ -691,6 +700,7 @@ public class JSONObject {
 
     /**
      * Determine if the JSONObject contains a specific key.
+     *
      * @param key   A key string.
      * @return      true if the key exists in the JSONObject.
      */
@@ -702,6 +712,7 @@ public class JSONObject {
     /**
      * Determine if the value associated with the key is null or if there is
      *  no value.
+     *
      * @param key   A key string.
      * @return      true if there is no value associated with the key or if
      *  the value is the JSONObject.NULL object.
@@ -734,6 +745,7 @@ public class JSONObject {
     /**
      * Produce a JSONArray containing the names of the elements of this
      * JSONObject.
+     *
      * @return A JSONArray containing the key strings, or null if the JSONObject
      * is empty.
      */
@@ -748,9 +760,10 @@ public class JSONObject {
 
     /**
      * Produce a string from a Number.
+     *
      * @param  n A Number
      * @return A String.
-     * @throws JSONException If n is a non-finite number.
+     * @throws weibo4j.org.json.JSONException If n is a non-finite number.
      */
     static public String numberToString(Number n)
             throws JSONException {
@@ -776,6 +789,7 @@ public class JSONObject {
 
     /**
      * Get an optional value associated with a key.
+     *
      * @param key   A key string.
      * @return      An object which is the value, or null if there is no value.
      */
@@ -818,10 +832,11 @@ public class JSONObject {
     /**
      * Put a key/value pair in the JSONObject, where the value will be a
      * JSONArray which is produced from a Collection.
+     *
      * @param key   A key string.
      * @param value A Collection value.
      * @return      this.
-     * @throws JSONException
+     * @throws weibo4j.org.json.JSONException
      */
     public JSONObject put(String key, Collection value) throws JSONException {
         put(key, new JSONArray(value));
@@ -991,7 +1006,7 @@ public class JSONObject {
      * @param key   A key string.
      * @param value A boolean which is the value.
      * @return this.
-     * @throws JSONException If the key is null.
+     * @throws weibo4j.org.json.JSONException If the key is null.
      */
     public JSONObject put(String key, boolean value) throws JSONException {
         put(key, value ? Boolean.TRUE : Boolean.FALSE);
@@ -1005,7 +1020,7 @@ public class JSONObject {
      * @param key   A key string.
      * @param value A double which is the value.
      * @return this.
-     * @throws JSONException If the key is null or if the number is invalid.
+     * @throws weibo4j.org.json.JSONException If the key is null or if the number is invalid.
      */
     public JSONObject put(String key, double value) throws JSONException {
         put(key, new Double(value));
@@ -1019,7 +1034,7 @@ public class JSONObject {
      * @param key   A key string.
      * @param value An int which is the value.
      * @return this.
-     * @throws JSONException If the key is null.
+     * @throws weibo4j.org.json.JSONException If the key is null.
      */
     public JSONObject put(String key, int value) throws JSONException {
         put(key, new Integer(value));
@@ -1033,7 +1048,7 @@ public class JSONObject {
      * @param key   A key string.
      * @param value A long which is the value.
      * @return this.
-     * @throws JSONException If the key is null.
+     * @throws weibo4j.org.json.JSONException If the key is null.
      */
     public JSONObject put(String key, long value) throws JSONException {
         put(key, new Long(value));
@@ -1044,10 +1059,11 @@ public class JSONObject {
     /**
      * Put a key/value pair in the JSONObject, where the value will be a
      * JSONObject which is produced from a Map.
+     *
      * @param key   A key string.
      * @param value A Map value.
      * @return      this.
-     * @throws JSONException
+     * @throws weibo4j.org.json.JSONException
      */
     public JSONObject put(String key, Map value) throws JSONException {
         put(key, new JSONObject(value));
@@ -1058,12 +1074,13 @@ public class JSONObject {
     /**
      * Put a key/value pair in the JSONObject. If the value is null,
      * then the key will be removed from the JSONObject if it is present.
+     *
      * @param key   A key string.
      * @param value An object which is the value. It should be of one of these
      *  types: Boolean, Double, Integer, JSONArray, JSONObject, Long, String,
      *  or the JSONObject.NULL object.
      * @return this.
-     * @throws JSONException If the value is non-finite number
+     * @throws weibo4j.org.json.JSONException If the value is non-finite number
      *  or if the key is null.
      */
     public JSONObject put(String key, Object value) throws JSONException {
@@ -1081,13 +1098,14 @@ public class JSONObject {
 
 
     /**
-     * Put a key/value pair in the JSONObject, but only if the key and the 
-     * value are both non-null, and only if there is not already a member 
+     * Put a key/value pair in the JSONObject, but only if the key and the
+     * value are both non-null, and only if there is not already a member
      * with that name.
-     * @param key
-     * @param value
+     *
+     * @param key a {@link java.lang.String} object.
+     * @param value a {@link java.lang.Object} object.
      * @return his.
-     * @throws JSONException if the key is a duplicate
+     * @throws weibo4j.org.json.JSONException if the key is a duplicate
      */
     public JSONObject putOnce(String key, Object value) throws JSONException {
         if (key != null && value != null) {
@@ -1103,12 +1121,13 @@ public class JSONObject {
     /**
      * Put a key/value pair in the JSONObject, but only if the
      * key and the value are both non-null.
+     *
      * @param key   A key string.
      * @param value An object which is the value. It should be of one of these
      *  types: Boolean, Double, Integer, JSONArray, JSONObject, Long, String,
      *  or the JSONObject.NULL object.
      * @return this.
-     * @throws JSONException If the value is a non-finite number.
+     * @throws weibo4j.org.json.JSONException If the value is a non-finite number.
      */
     public JSONObject putOpt(String key, Object value) throws JSONException {
         if (key != null && value != null) {
@@ -1123,6 +1142,7 @@ public class JSONObject {
      * right places. A backslash will be inserted within </, allowing JSON
      * text to be delivered in HTML. In JSON text, a string cannot contain a
      * control character or an unescaped quote or backslash.
+     *
      * @param string A String
      * @return  A String correctly formatted for insertion in a JSON text.
      */
@@ -1185,6 +1205,7 @@ public class JSONObject {
 
     /**
      * Remove a name and its value, if present.
+     *
      * @param key The name to be removed.
      * @return The value that was associated with the name,
      * or null if there was no value.
@@ -1206,6 +1227,7 @@ public class JSONObject {
     /**
      * Try to convert a string into a number, boolean, or null. If the string
      * can't be converted, return the string.
+     *
      * @param s A String.
      * @return A simple JSON value.
      */
@@ -1293,10 +1315,11 @@ public class JSONObject {
     /**
      * Produce a JSONArray containing the values of the members of this
      * JSONObject.
+     *
      * @param names A JSONArray containing a list of key strings. This
      * determines the sequence of the values in the result.
      * @return A JSONArray of values.
-     * @throws JSONException If any of the values are non-finite numbers.
+     * @throws weibo4j.org.json.JSONException If any of the values are non-finite numbers.
      */
     public JSONArray toJSONArray(JSONArray names) throws JSONException {
         if (names == null || names.length() == 0) {
@@ -1347,13 +1370,14 @@ public class JSONObject {
      * Make a prettyprinted JSON text of this JSONObject.
      * <p>
      * Warning: This method assumes that the data structure is acyclical.
+     *
      * @param indentFactor The number of spaces to add to each level of
      *  indentation.
      * @return a printable, displayable, portable, transmittable
      *  representation of the object, beginning
      *  with <code>{</code>&nbsp;<small>(left brace)</small> and ending
      *  with <code>}</code>&nbsp;<small>(right brace)</small>.
-     * @throws JSONException If the object contains an invalid number.
+     * @throws weibo4j.org.json.JSONException If the object contains an invalid number.
      */
     public String toString(int indentFactor) throws JSONException {
         return toString(indentFactor, 0);
@@ -1535,7 +1559,8 @@ public class JSONObject {
       * Warning: This method assumes that the data structure is acyclical.
       *
       * @return The writer.
-      * @throws JSONException
+      * @throws weibo4j.org.json.JSONException
+      * @param writer a {@link java.io.Writer} object.
       */
      public Writer write(Writer writer) throws JSONException {
         try {

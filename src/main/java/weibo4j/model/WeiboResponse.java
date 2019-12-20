@@ -48,11 +48,12 @@ import java.util.TimeZone;
 
 /**
  * Super class of Weibo Response objects.
- * 
+ *
  * @see weibo4j.DirectMessage
  * @see weibo4j.model.Status
  * @see weibo4j.model.User
  * @author Yusuke Yamamoto - yusuke at mac.com
+ * @version $Id: $Id
  */
 public class WeiboResponse implements java.io.Serializable {
     private static Map<String,SimpleDateFormat> formatMap = new HashMap<String,SimpleDateFormat>();
@@ -62,9 +63,17 @@ public class WeiboResponse implements java.io.Serializable {
     private transient long rateLimitReset = -1;
     private static final boolean IS_DALVIK = Configuration.isDalvik();
 
+    /**
+     * <p>Constructor for WeiboResponse.</p>
+     */
     public WeiboResponse() {
     }
 
+    /**
+     * <p>Constructor for WeiboResponse.</p>
+     *
+     * @param res a {@link weibo4j.http.Response} object.
+     */
     public WeiboResponse(Response res) {
         String limit = res.getResponseHeader("X-RateLimit-Limit");
         if(null != limit){
@@ -80,12 +89,26 @@ public class WeiboResponse implements java.io.Serializable {
         }
     }
 
+    /**
+     * <p>ensureRootNodeNameIs.</p>
+     *
+     * @param rootName a {@link java.lang.String} object.
+     * @param elem a {@link org.w3c.dom.Element} object.
+     * @throws weibo4j.model.WeiboException if any.
+     */
     protected static void ensureRootNodeNameIs(String rootName, Element elem) throws WeiboException {
         if (!rootName.equals(elem.getNodeName())) {
             throw new WeiboException("Unexpected root node name:" + elem.getNodeName() + ". Expected:" + rootName + ". Check the availability of the Weibo API at http://open.t.sina.com.cn/.");
         }
     }
 
+    /**
+     * <p>ensureRootNodeNameIs.</p>
+     *
+     * @param rootNames an array of {@link java.lang.String} objects.
+     * @param elem a {@link org.w3c.dom.Element} object.
+     * @throws weibo4j.model.WeiboException if any.
+     */
     protected static void ensureRootNodeNameIs(String[] rootNames, Element elem) throws WeiboException {
         String actualRootName = elem.getNodeName();
         for (String rootName : rootNames) {
@@ -103,6 +126,13 @@ public class WeiboResponse implements java.io.Serializable {
         throw new WeiboException("Unexpected root node name:" + elem.getNodeName() + ". Expected:" + expected + ". Check the availability of the Weibo API at http://open.t.sina.com.cn/.");
     }
 
+    /**
+     * <p>ensureRootNodeNameIs.</p>
+     *
+     * @param rootName a {@link java.lang.String} object.
+     * @param doc a {@link org.w3c.dom.Document} object.
+     * @throws weibo4j.model.WeiboException if any.
+     */
     protected static void ensureRootNodeNameIs(String rootName, Document doc) throws WeiboException {
         Element elem = doc.getDocumentElement();
         if (!rootName.equals(elem.getNodeName())) {
@@ -110,15 +140,35 @@ public class WeiboResponse implements java.io.Serializable {
         }
     }
 
+    /**
+     * <p>isRootNodeNilClasses.</p>
+     *
+     * @param doc a {@link org.w3c.dom.Document} object.
+     * @return a boolean.
+     */
     protected static boolean isRootNodeNilClasses(Document doc) {
         String root = doc.getDocumentElement().getNodeName();
         return "nil-classes".equals(root) || "nilclasses".equals(root);
     }
 
+    /**
+     * <p>getChildText.</p>
+     *
+     * @param str a {@link java.lang.String} object.
+     * @param elem a {@link org.w3c.dom.Element} object.
+     * @return a {@link java.lang.String} object.
+     */
     protected static String getChildText( String str, Element elem ) {
         return HTMLEntity.unescape(getTextContent(str,elem));
     }
 
+    /**
+     * <p>getTextContent.</p>
+     *
+     * @param str a {@link java.lang.String} object.
+     * @param elem a {@link org.w3c.dom.Element} object.
+     * @return a {@link java.lang.String} object.
+     */
     protected static String getTextContent(String str, Element elem){
         NodeList nodelist = elem.getElementsByTagName(str);
         if (nodelist.getLength() > 0) {
@@ -132,6 +182,13 @@ public class WeiboResponse implements java.io.Serializable {
      }
 
     /*modify by sycheng  add "".equals(str) */
+    /**
+     * <p>getChildInt.</p>
+     *
+     * @param str a {@link java.lang.String} object.
+     * @param elem a {@link org.w3c.dom.Element} object.
+     * @return a int.
+     */
     protected static int getChildInt(String str, Element elem) {
         String str2 = getTextContent(str, elem);
         if (null == str2 || "".equals(str2)||"null".equals(str)) {
@@ -141,6 +198,13 @@ public class WeiboResponse implements java.io.Serializable {
         }
     }
 
+    /**
+     * <p>getChildLong.</p>
+     *
+     * @param str a {@link java.lang.String} object.
+     * @param elem a {@link org.w3c.dom.Element} object.
+     * @return a long.
+     */
     protected static long getChildLong(String str, Element elem) {
         String str2 = getTextContent(str, elem);
         if (null == str2 || "".equals(str2)||"null".equals(str)) {
@@ -150,6 +214,14 @@ public class WeiboResponse implements java.io.Serializable {
         }
     }
 
+    /**
+     * <p>getString.</p>
+     *
+     * @param name a {@link java.lang.String} object.
+     * @param json a {@link weibo4j.org.json.JSONObject} object.
+     * @param decode a boolean.
+     * @return a {@link java.lang.String} object.
+     */
     protected static String getString(String name, JSONObject json, boolean decode) {
         String returnValue = null;
             try {
@@ -166,17 +238,49 @@ public class WeiboResponse implements java.io.Serializable {
         return returnValue;
     }
 
+    /**
+     * <p>getChildBoolean.</p>
+     *
+     * @param str a {@link java.lang.String} object.
+     * @param elem a {@link org.w3c.dom.Element} object.
+     * @return a boolean.
+     */
     protected static boolean getChildBoolean(String str, Element elem) {
         String value = getTextContent(str, elem);
         return Boolean.valueOf(value);
     }
+    /**
+     * <p>getChildDate.</p>
+     *
+     * @param str a {@link java.lang.String} object.
+     * @param elem a {@link org.w3c.dom.Element} object.
+     * @return a {@link java.util.Date} object.
+     * @throws weibo4j.model.WeiboException if any.
+     */
     protected static Date getChildDate(String str, Element elem) throws WeiboException {
         return getChildDate(str, elem, "EEE MMM d HH:mm:ss z yyyy");
     }
 
+    /**
+     * <p>getChildDate.</p>
+     *
+     * @param str a {@link java.lang.String} object.
+     * @param elem a {@link org.w3c.dom.Element} object.
+     * @param format a {@link java.lang.String} object.
+     * @return a {@link java.util.Date} object.
+     * @throws weibo4j.model.WeiboException if any.
+     */
     protected static Date getChildDate(String str, Element elem, String format) throws WeiboException {
         return parseDate(getChildText(str, elem),format);
     }
+    /**
+     * <p>parseDate.</p>
+     *
+     * @param str a {@link java.lang.String} object.
+     * @param format a {@link java.lang.String} object.
+     * @return a {@link java.util.Date} object.
+     * @throws weibo4j.model.WeiboException if any.
+     */
     protected static Date parseDate(String str, String format) throws WeiboException{
         if(str==null||"".equals(str)){
         	return null;
@@ -197,6 +301,14 @@ public class WeiboResponse implements java.io.Serializable {
         }
     }
 
+    /**
+     * <p>getInt.</p>
+     *
+     * @param key a {@link java.lang.String} object.
+     * @param json a {@link weibo4j.org.json.JSONObject} object.
+     * @return a int.
+     * @throws weibo4j.org.json.JSONException if any.
+     */
     protected static int getInt(String key, JSONObject json) throws JSONException {
         String str = json.getString(key);
         if(null == str || "".equals(str)||"null".equals(str)){
@@ -205,6 +317,14 @@ public class WeiboResponse implements java.io.Serializable {
         return Integer.parseInt(str);
     }
 
+    /**
+     * <p>getLong.</p>
+     *
+     * @param key a {@link java.lang.String} object.
+     * @param json a {@link weibo4j.org.json.JSONObject} object.
+     * @return a long.
+     * @throws weibo4j.org.json.JSONException if any.
+     */
     protected static long getLong(String key, JSONObject json) throws JSONException {
         String str = json.getString(key);
         if(null == str || "".equals(str)||"null".equals(str)){
@@ -212,6 +332,14 @@ public class WeiboResponse implements java.io.Serializable {
         }
         return Long.parseLong(str);
     }
+    /**
+     * <p>getBoolean.</p>
+     *
+     * @param key a {@link java.lang.String} object.
+     * @param json a {@link weibo4j.org.json.JSONObject} object.
+     * @return a boolean.
+     * @throws weibo4j.org.json.JSONException if any.
+     */
     protected static boolean getBoolean(String key, JSONObject json) throws JSONException {
         String str = json.getString(key);
         if(null == str || "".equals(str)||"null".equals(str)){
@@ -220,14 +348,29 @@ public class WeiboResponse implements java.io.Serializable {
         return Boolean.valueOf(str);
     }
 
+    /**
+     * <p>Getter for the field <code>rateLimitLimit</code>.</p>
+     *
+     * @return a int.
+     */
     public int getRateLimitLimit() {
         return rateLimitLimit;
     }
 
+    /**
+     * <p>Getter for the field <code>rateLimitRemaining</code>.</p>
+     *
+     * @return a int.
+     */
     public int getRateLimitRemaining() {
         return rateLimitRemaining;
     }
 
+    /**
+     * <p>Getter for the field <code>rateLimitReset</code>.</p>
+     *
+     * @return a long.
+     */
     public long getRateLimitReset() {
         return rateLimitReset;
     }

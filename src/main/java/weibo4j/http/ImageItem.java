@@ -18,17 +18,32 @@ import com.sun.imageio.plugins.png.PNGImageReader;
 
 /**
  * 临时存储上传图片的内容，格式，文件信息等
- * 
+ *
+ * @author user1
+ * @version $Id: $Id
  */
 public class ImageItem {
 	private byte[] content;
 	private String name;
 	private String contentType;
 
+	/**
+	 * <p>Constructor for ImageItem.</p>
+	 *
+	 * @param content an array of {@link byte} objects.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public ImageItem(byte[] content) throws WeiboException {
 		this(Constants.UPLOAD_MODE, content);
 	}
 
+	/**
+	 * <p>Constructor for ImageItem.</p>
+	 *
+	 * @param name a {@link java.lang.String} object.
+	 * @param content an array of {@link byte} objects.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public ImageItem(String name, byte[] content) throws WeiboException {
 		String imgtype = null;
 		try {
@@ -50,18 +65,40 @@ public class ImageItem {
 		}
 	}
 
+	/**
+	 * <p>Getter for the field <code>content</code>.</p>
+	 *
+	 * @return an array of {@link byte} objects.
+	 */
 	public byte[] getContent() {
 		return content;
 	}
 
+	/**
+	 * <p>Getter for the field <code>name</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * <p>Getter for the field <code>contentType</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getContentType() {
 		return contentType;
 	}
 
+	/**
+	 * <p>Getter for the field <code>contentType</code>.</p>
+	 *
+	 * @param mapObj an array of {@link byte} objects.
+	 * @return a {@link java.lang.String} object.
+	 * @throws java.io.IOException if any.
+	 */
 	public static String getContentType(byte[] mapObj) throws IOException {
 
 		String type = "";

@@ -9,8 +9,10 @@ import weibo4j.org.json.JSONException;
 import weibo4j.org.json.JSONObject;
 
 /**
+ * <p>FavoritesTag class.</p>
+ *
  * @author sinaWeibo
- * 
+ * @version $Id: $Id
  */
 public class FavoritesTag extends WeiboResponse {
 
@@ -22,6 +24,13 @@ public class FavoritesTag extends WeiboResponse {
 
 	private int count;           //该标签下收藏的微博数
 
+	/**
+	 * <p>Constructor for FavoritesTag.</p>
+	 *
+	 * @param json a {@link weibo4j.org.json.JSONObject} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 * @throws weibo4j.org.json.JSONException if any.
+	 */
 	public FavoritesTag(JSONObject json) throws WeiboException,JSONException {
 		id = json.getString("id");
 		tag = json.getString("tag");
@@ -33,6 +42,13 @@ public class FavoritesTag extends WeiboResponse {
 	}
 
 
+	/**
+	 * <p>constructTags.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @return a {@link java.util.List} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public static List<FavoritesTag> constructTags(Response res) throws WeiboException {
 		try {
 			JSONArray list = res.asJSONArray();
@@ -48,6 +64,13 @@ public class FavoritesTag extends WeiboResponse {
 			throw te;
 		}
 	}
+	/**
+	 * <p>constructTag.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @return a {@link java.util.List} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public static List<FavoritesTag> constructTag(Response res) throws WeiboException {
 		try {
 			JSONArray list = res.asJSONObject().getJSONArray("tags");
@@ -66,6 +89,7 @@ public class FavoritesTag extends WeiboResponse {
 
 
 
+	/** {@inheritDoc} */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -75,6 +99,7 @@ public class FavoritesTag extends WeiboResponse {
 	}
 
 
+	/** {@inheritDoc} */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -93,36 +118,67 @@ public class FavoritesTag extends WeiboResponse {
 	}
 
 
+	/**
+	 * <p>Getter for the field <code>id</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getId() {
 		return id;
 	}
 
 
+	/**
+	 * <p>Setter for the field <code>id</code>.</p>
+	 *
+	 * @param id a {@link java.lang.String} object.
+	 */
 	public void setId(String id) {
 		this.id = id;
 	}
 
 
+	/**
+	 * <p>Getter for the field <code>tag</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getTag() {
 		return tag;
 	}
 
 
+	/**
+	 * <p>Setter for the field <code>tag</code>.</p>
+	 *
+	 * @param tag a {@link java.lang.String} object.
+	 */
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
 
 
+	/**
+	 * <p>Getter for the field <code>count</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getCount() {
 		return count;
 	}
 
 
+	/**
+	 * <p>Setter for the field <code>count</code>.</p>
+	 *
+	 * @param count a int.
+	 */
 	public void setCount(int count) {
 		this.count = count;
 	}
 
 
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "FavoritesTag [id=" + id + ", tag=" + tag + ", count=" + count

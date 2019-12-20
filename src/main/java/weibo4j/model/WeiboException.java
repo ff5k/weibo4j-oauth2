@@ -32,7 +32,9 @@ import weibo4j.org.json.JSONObject;
 /**
  * An exception class that will be thrown when WeiboAPI calls are failed.<br>
  * In case the Weibo server returned HTTP error code, you can get the HTTP status code using getStatusCode() method.
+ *
  * @author Yusuke Yamamoto - yusuke at mac.com
+ * @version $Id: $Id
  */
 public class WeiboException extends Exception {
     private int statusCode = -1;
@@ -41,19 +43,44 @@ public class WeiboException extends Exception {
     private String error;
     private static final long serialVersionUID = -2623309261327598087L;
 
+    /**
+     * <p>Constructor for WeiboException.</p>
+     *
+     * @param msg a {@link java.lang.String} object.
+     */
     public WeiboException(String msg) {
         super(msg);
     }
 
+    /**
+     * <p>Constructor for WeiboException.</p>
+     *
+     * @param cause a {@link java.lang.Exception} object.
+     */
     public WeiboException(Exception cause) {
         super(cause);
     }
     
+    /**
+     * <p>Constructor for WeiboException.</p>
+     *
+     * @param msg a {@link java.lang.String} object.
+     * @param statusCode a int.
+     * @throws weibo4j.org.json.JSONException if any.
+     */
     public WeiboException(String msg , int statusCode) throws JSONException {
     	super(msg);
     	this.statusCode = statusCode;
     }
 
+    /**
+     * <p>Constructor for WeiboException.</p>
+     *
+     * @param msg a {@link java.lang.String} object.
+     * @param json a {@link weibo4j.org.json.JSONObject} object.
+     * @param statusCode a int.
+     * @throws weibo4j.org.json.JSONException if any.
+     */
     public WeiboException(String msg , JSONObject json, int statusCode) throws JSONException {
         super(msg + "\n error:" + json.getString("error") +" error_code:" + json.getInt("error_code") + json.getString("request"));
         this.statusCode = statusCode;
@@ -63,28 +90,61 @@ public class WeiboException extends Exception {
 
     }
 
+    /**
+     * <p>Constructor for WeiboException.</p>
+     *
+     * @param msg a {@link java.lang.String} object.
+     * @param cause a {@link java.lang.Exception} object.
+     */
     public WeiboException(String msg, Exception cause) {
         super(msg, cause);
     }
 
+    /**
+     * <p>Constructor for WeiboException.</p>
+     *
+     * @param msg a {@link java.lang.String} object.
+     * @param cause a {@link java.lang.Exception} object.
+     * @param statusCode a int.
+     */
     public WeiboException(String msg, Exception cause, int statusCode) {
         super(msg, cause);
         this.statusCode = statusCode;
 
     }
 
+    /**
+     * <p>Getter for the field <code>statusCode</code>.</p>
+     *
+     * @return a int.
+     */
     public int getStatusCode() {
         return this.statusCode;
     }
 
+	/**
+	 * <p>Getter for the field <code>errorCode</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getErrorCode() {
 		return errorCode;
 	}
 
+	/**
+	 * <p>Getter for the field <code>request</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getRequest() {
 		return request;
 	}
 
+	/**
+	 * <p>Getter for the field <code>error</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getError() {
 		return error;
 	}

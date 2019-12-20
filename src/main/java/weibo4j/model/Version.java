@@ -27,15 +27,28 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 package weibo4j.model;
 
 /**
+ * <p>Version class.</p>
+ *
  * @author Yusuke Yamamoto - yusuke at mac.com
+ * @version $Id: $Id
  */
 public class Version {
     private final static String VERSION = "1.0.0";
     private final static String TITLE = "weibo4jV2";
 
+    /**
+     * <p>getVersion.</p>
+     *
+     * @return a {@link java.lang.String} object.
+     */
     public static String getVersion(){
         return VERSION;
     }
+    /**
+     * <p>main.</p>
+     *
+     * @param args an array of {@link java.lang.String} objects.
+     */
     public static void main(String[] args) {
         System.out.println(TITLE +" " + VERSION);
     }

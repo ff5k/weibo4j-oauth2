@@ -8,10 +8,21 @@ import weibo4j.model.UserCounts;
 import weibo4j.model.WeiboException;
 import weibo4j.util.WeiboConfig;
 
+/**
+ * <p>Users class.</p>
+ *
+ * @author user1
+ * @version $Id: $Id
+ */
 public class Users extends Weibo {
 
 	private static final long serialVersionUID = 4742830953302255953L;
 
+	/**
+	 * <p>Constructor for Users.</p>
+	 *
+	 * @param access_token a {@link java.lang.String} object.
+	 */
 	public Users(String access_token) {
 		this.access_token = access_token;
 	}
@@ -19,11 +30,11 @@ public class Users extends Weibo {
 	/*----------------------------用户接口----------------------------------------*/
 	/**
 	 * 根据用户ID获取用户信息
-	 * 
+	 *
 	 * @param uid
 	 *            需要查询的用户ID
 	 * @return User
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @see http://open.weibo.com/wiki/2/users/show
@@ -38,11 +49,11 @@ public class Users extends Weibo {
 
 	/**
 	 * 根据用户ID获取用户信息
-	 * 
+	 *
 	 * @param screen_name
 	 *            用户昵称
 	 * @return User
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @see http://open.weibo.com/wiki/2/users/show
@@ -57,11 +68,11 @@ public class Users extends Weibo {
 
 	/**
 	 * 通过个性化域名获取用户资料以及用户最新的一条微博
-	 * 
+	 *
 	 * @param domain
 	 *            需要查询的个性化域名。
 	 * @return User
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @see http://open.weibo.com/wiki/2/users/domain_show
@@ -76,11 +87,11 @@ public class Users extends Weibo {
 
 	/**
 	 * 批量获取用户的粉丝数、关注数、微博数
-	 * 
+	 *
 	 * @param uids
 	 *            需要获取数据的用户UID，多个之间用逗号分隔，最多不超过100个
 	 * @return jsonobject
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @see http://open.weibo.com/wiki/2/users/domain_show

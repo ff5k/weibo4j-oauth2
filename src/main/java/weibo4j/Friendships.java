@@ -12,12 +12,23 @@ import weibo4j.org.json.JSONObject;
 import weibo4j.util.ArrayUtils;
 import weibo4j.util.WeiboConfig;
 
+/**
+ * <p>Friendships class.</p>
+ *
+ * @author user1
+ * @version $Id: $Id
+ */
 public class Friendships extends Weibo {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 3603512821159421447L;
 
+	/**
+	 * <p>Constructor for Friendships.</p>
+	 *
+	 * @param access_token a {@link java.lang.String} object.
+	 */
 	public Friendships(String access_token) {
 		this.access_token = access_token;
 	}
@@ -25,13 +36,14 @@ public class Friendships extends Weibo {
 	/*----------------------------关系接口----------------------------------------*/
 	/**
 	 * 获取用户的关注列表
-	 * 
+	 *
 	 * @return list of the user's follow
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends
 	 * @since JDK 1.5
+	 * @param id a {@link java.lang.String} object.
 	 */
 	public UserWapper getFriendsByID(String id) throws WeiboException {
 		return User.constructWapperUsers(client.get(
@@ -42,13 +54,14 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户的关注列表
-	 * 
+	 *
 	 * @return list of the user's follow
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends
 	 * @since JDK 1.5
+	 * @param screen_name a {@link java.lang.String} object.
 	 */
 	public UserWapper getFriendsByScreenName(String screen_name)
 			throws WeiboException {
@@ -60,15 +73,15 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户的关注列表
-	 * 
+	 *
 	 * @param map
 	 *            参数列表
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/friendships/friends
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.model.UserWapper} object.
 	 */
 	public UserWapper getFriends(Map<String, String> map) throws WeiboException {
 		PostParameter[] parList = ArrayUtils.mapToArray(map);
@@ -79,11 +92,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取两个用户之间的共同关注人列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要获取共同关注关系的用户UID
 	 * @return list of the user's follow
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/in_common
@@ -99,7 +112,7 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取两个用户之间的共同关注人列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要获取共同关注关系的用户UID
 	 * @param suid
@@ -107,7 +120,7 @@ public class Friendships extends Weibo {
 	 * @param page
 	 *            返回结果的页码，默认为1
 	 * @return list of the user's follow
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/in_common
@@ -124,15 +137,15 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取两个用户之间的共同关注人列表
-	 * 
+	 *
 	 * @param map
 	 *            参数列表
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/in_common
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.model.UserWapper} object.
 	 */
 	public UserWapper getFriendsInCommon(Map<String, String> map)
 			throws WeiboException {
@@ -145,11 +158,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户的双向关注列表，即互粉列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要获取双向关注列表的用户UID
 	 * @return list of the user
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/bilateral
@@ -165,7 +178,7 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户的双向关注列表，即互粉列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要获取双向关注列表的用户UID
 	 * @param page
@@ -173,7 +186,7 @@ public class Friendships extends Weibo {
 	 * @param sort
 	 *            排序类型，0：按关注时间最近排序，默认为0。
 	 * @return list of the user
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/bilateral
@@ -191,15 +204,15 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户的双向关注列表，即互粉列表
-	 * 
+	 *
 	 * @param map
 	 *            参数列表
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/bilateral
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.model.UserWapper} object.
 	 */
 	public UserWapper getFriendsBilateral(Map<String, String> map)
 			throws WeiboException {
@@ -212,11 +225,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户双向关注的用户ID列表，即互粉UID列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要获取双向关注列表的用户UID
 	 * @return ids
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/bilateral/ids
@@ -231,7 +244,7 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户双向关注的用户ID列表，即互粉UID列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要获取双向关注列表的用户UID
 	 * @param page
@@ -239,7 +252,7 @@ public class Friendships extends Weibo {
 	 * @param sort
 	 *            排序类型，0：按关注时间最近排序，默认为0。
 	 * @return ids
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/bilateral/ids
@@ -256,15 +269,15 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户双向关注的用户ID列表，即互粉UID列表
-	 * 
+	 *
 	 * @param map
 	 *            参数列表
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/bilateral/ids
 	 * @since JDK 1.5
+	 * @return an array of {@link java.lang.String} objects.
 	 */
 	public String[] getFriendsBilateralIds(Map<String, String> map)
 			throws WeiboException {
@@ -275,11 +288,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户关注的用户UID列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要查询的用户UID
 	 * @return ids
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/ids
@@ -294,11 +307,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户关注的用户UID列表
-	 * 
+	 *
 	 * @param screen_name
 	 *            需要查询的用户昵称
 	 * @return ids
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/ids
@@ -314,7 +327,7 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户关注的用户UID列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要查询的用户UID
 	 * @param count
@@ -322,7 +335,7 @@ public class Friendships extends Weibo {
 	 * @param cursor
 	 *            返回结果的游标，下一页用返回值里的next_cursor，上一页用previous_cursor，默认为0
 	 * @return ids
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/ids
@@ -340,7 +353,7 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户关注的用户UID列表
-	 * 
+	 *
 	 * @param screen_name
 	 *            需要查询的用户昵称
 	 * @param count
@@ -348,7 +361,7 @@ public class Friendships extends Weibo {
 	 * @param cursor
 	 *            返回结果的游标，下一页用返回值里的next_cursor，上一页用previous_cursor，默认为0
 	 * @return ids
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/ids
@@ -367,15 +380,15 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户关注的用户UID列表
-	 * 
+	 *
 	 * @param map
 	 *            参数列表
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/ids
 	 * @since JDK 1.5
+	 * @return an array of {@link java.lang.String} objects.
 	 */
 	public String[] getFriendsIds(Map<String, String> map)
 			throws WeiboException {
@@ -386,11 +399,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 批量获取当前登录用户的关注人的备注信息
-	 * 
+	 *
 	 * @param uids
 	 *            需要获取备注的用户UID，用半角逗号分隔，最多不超过50个
 	 * @return list of user's remark
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends/remark_batch
@@ -406,11 +419,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户的粉丝列表
-	 * 
+	 *
 	 * @param screen_name
 	 *            需要查询的用户昵称
 	 * @return list of users
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/followers
@@ -426,7 +439,7 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户的粉丝列表
-	 * 
+	 *
 	 * @param screen_name
 	 *            需要查询的用户昵称
 	 * @param count
@@ -434,7 +447,7 @@ public class Friendships extends Weibo {
 	 * @param cursor
 	 *            返回结果的游标，下一页用返回值里的next_cursor，上一页用previous_cursor，默认为0
 	 * @return list of users
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/followers
@@ -453,11 +466,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户的粉丝列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要查询的用户UID
 	 * @return list of users
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/followers
@@ -472,7 +485,7 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户的粉丝列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要查询的用户UID
 	 * @param count
@@ -480,7 +493,7 @@ public class Friendships extends Weibo {
 	 * @param cursor
 	 *            返回结果的游标，下一页用返回值里的next_cursor，上一页用previous_cursor，默认为0
 	 * @return list of users
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/followers
@@ -498,15 +511,15 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户的粉丝列表
-	 * 
+	 *
 	 * @param map
 	 *            参数列表
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/friendships/followers
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.model.UserWapper} object.
 	 */
 	public UserWapper getFollowers(Map<String, String> map)
 			throws WeiboException {
@@ -518,11 +531,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户粉丝的用户UID列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要查询的用户ID
 	 * @return list of users
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/followers/ids
@@ -537,7 +550,7 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户粉丝的用户UID列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要查询的用户ID
 	 * @param count
@@ -545,7 +558,7 @@ public class Friendships extends Weibo {
 	 * @param cursor
 	 *            返回结果的游标，下一页用返回值里的next_cursor，上一页用previous_cursor，默认为0
 	 * @return list of users
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/followers/ids
@@ -563,11 +576,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户粉丝的用户UID列表
-	 * 
+	 *
 	 * @param screen_name
 	 *            需要查询的用户昵称
 	 * @return list of users
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/followers/ids
@@ -583,7 +596,7 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户粉丝的用户UID列表
-	 * 
+	 *
 	 * @param screen_name
 	 *            需要查询的用户ID
 	 * @param count
@@ -591,7 +604,7 @@ public class Friendships extends Weibo {
 	 * @param cursor
 	 *            返回结果的游标，下一页用返回值里的next_cursor，上一页用previous_cursor，默认为0
 	 * @return list of users
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/followers/ids
@@ -612,15 +625,15 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户粉丝的用户UID列表
-	 * 
+	 *
 	 * @param map
 	 *            参数列表
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/friendships/followers/ids
 	 * @since JDK 1.5
+	 * @return an array of {@link java.lang.String} objects.
 	 */
 	public String[] getFollowersIdsByName(Map<String, String> map)
 			throws WeiboException {
@@ -631,11 +644,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户的活跃粉丝列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要查询的用户ID
 	 * @return list of user's id
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/followers/active
@@ -651,13 +664,13 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取用户的活跃粉丝列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要查询的用户ID
 	 * @param count
 	 *            返回的记录条数，默认为20，最大不超过200。
 	 * @return list of users
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/followers/active
@@ -675,11 +688,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取当前登录用户的关注人中又关注了指定用户的用户列表
-	 * 
+	 *
 	 * @param uid
 	 *            需要查询的用户ID
 	 * @return list of users
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/friends_chain/followers
@@ -696,15 +709,15 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取当前登录用户的关注人中又关注了指定用户的用户列表
-	 * 
+	 *
 	 * @param map
 	 *            参数列表
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/friendships/friends_chain/followers
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.model.UserWapper} object.
 	 */
 	public UserWapper getFriendsChainFollowers(Map<String, String> map)
 			throws WeiboException {
@@ -717,17 +730,17 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取两个用户之间的详细关注关系情况
-	 * 
+	 *
 	 * @param source
 	 *            源用户的UID
 	 * @param target
 	 *            目标用户的UID
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/show
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.org.json.JSONObject} object.
 	 */
 	public JSONObject getFriendshipsById(long source, long target)
 			throws WeiboException {
@@ -740,17 +753,17 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取两个用户之间的详细关注关系情况
-	 * 
+	 *
 	 * @param source
 	 *            源用户的微博昵称
 	 * @param target
 	 *            目标用户的微博昵称
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/friendships/show
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.org.json.JSONObject} object.
 	 */
 	public JSONObject getFriendshipsByName(String source, String target)
 			throws WeiboException {
@@ -764,15 +777,15 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 获取两个用户之间的详细关注关系情况
-	 * 
+	 *
 	 * @param map
 	 *            参数列表
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/friendships/show
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.org.json.JSONObject} object.
 	 */
 	public JSONObject getFriendships(Map<String, String> map)
 			throws WeiboException {
@@ -784,11 +797,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 关注一个用户
-	 * 
+	 *
 	 * @param uid
 	 *            需要查询的用户ID
 	 * @return user
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/create
@@ -803,11 +816,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 关注一个用户
-	 * 
+	 *
 	 * @param screen_name
 	 *            需要查询的用户screen_name
 	 * @return user
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/create
@@ -823,15 +836,15 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 关注一个用户
-	 * 
+	 *
 	 * @param map
 	 *            参数列表
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/friendships/create
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.model.User} object.
 	 */
 	public User createFriendships(Map<String, String> map)
 			throws WeiboException {
@@ -843,11 +856,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 取消关注一个用户
-	 * 
+	 *
 	 * @param uid
 	 *            需要查询的用户ID
 	 * @return user
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/destroy
@@ -862,11 +875,11 @@ public class Friendships extends Weibo {
 
 	/**
 	 * 取消关注一个用户
-	 * 
+	 *
 	 * @param screen_name
 	 *            需要查询的用户screen_name
 	 * @return user
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.0
 	 * @see http://open.weibo.com/wiki/2/friendships/destroy

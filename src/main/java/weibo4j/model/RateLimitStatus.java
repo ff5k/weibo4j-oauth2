@@ -33,6 +33,12 @@ import weibo4j.org.json.JSONArray;
 import weibo4j.org.json.JSONException;
 import weibo4j.org.json.JSONObject;
 
+/**
+ * <p>RateLimitStatus class.</p>
+ *
+ * @author user1
+ * @version $Id: $Id
+ */
 public class RateLimitStatus extends WeiboResponse {
 
 	private static final long serialVersionUID = -3153374766679996576L;
@@ -45,6 +51,12 @@ public class RateLimitStatus extends WeiboResponse {
 	private long userLimit;
 	private List<ApiRateLimits> apiRateLimit;
 
+	/**
+	 * <p>Constructor for RateLimitStatus.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public RateLimitStatus(Response res) throws WeiboException {
 		super(res);
 		JSONObject json = res.asJSONObject();
@@ -67,62 +79,133 @@ public class RateLimitStatus extends WeiboResponse {
 		}
 	}
 
+	/**
+	 * <p>Getter for the field <code>ipLimit</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getIpLimit() {
 		return ipLimit;
 	}
 
+	/**
+	 * <p>Setter for the field <code>ipLimit</code>.</p>
+	 *
+	 * @param ipLimit a int.
+	 */
 	public void setIpLimit(int ipLimit) {
 		this.ipLimit = ipLimit;
 	}
 
+	/**
+	 * <p>Getter for the field <code>remainingIpHits</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getRemainingIpHits() {
 		return remainingIpHits;
 	}
 
+	/**
+	 * <p>Setter for the field <code>remainingIpHits</code>.</p>
+	 *
+	 * @param remainingIpHits a int.
+	 */
 	public void setRemainingIpHits(int remainingIpHits) {
 		this.remainingIpHits = remainingIpHits;
 	}
 
+	/**
+	 * <p>Getter for the field <code>remainingUserHits</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getRemainingUserHits() {
 		return remainingUserHits;
 	}
 
+	/**
+	 * <p>Setter for the field <code>remainingUserHits</code>.</p>
+	 *
+	 * @param remainingUserHits a long.
+	 */
 	public void setRemainingUserHits(long remainingUserHits) {
 		this.remainingUserHits = remainingUserHits;
 	}
 
+	/**
+	 * <p>Getter for the field <code>resetTime</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getResetTime() {
 		return resetTime;
 	}
 
+	/**
+	 * <p>Setter for the field <code>resetTime</code>.</p>
+	 *
+	 * @param resetTime a {@link java.lang.String} object.
+	 */
 	public void setResetTime(String resetTime) {
 		this.resetTime = resetTime;
 	}
 
+	/**
+	 * <p>Getter for the field <code>resetTimeInSeconds</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getResetTimeInSeconds() {
 		return resetTimeInSeconds;
 	}
 
+	/**
+	 * <p>Setter for the field <code>resetTimeInSeconds</code>.</p>
+	 *
+	 * @param resetTimeInSeconds a int.
+	 */
 	public void setResetTimeInSeconds(int resetTimeInSeconds) {
 		this.resetTimeInSeconds = resetTimeInSeconds;
 	}
 
+	/**
+	 * <p>Getter for the field <code>userLimit</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getUserLimit() {
 		return userLimit;
 	}
 
+	/**
+	 * <p>Setter for the field <code>userLimit</code>.</p>
+	 *
+	 * @param userLimit a long.
+	 */
 	public void setUserLimit(long userLimit) {
 		this.userLimit = userLimit;
 	}
 
+	/**
+	 * <p>Getter for the field <code>apiRateLimit</code>.</p>
+	 *
+	 * @return a {@link java.util.List} object.
+	 */
 	public List<ApiRateLimits> getApiRateLimit() {
 		return apiRateLimit;
 	}
 
+	/**
+	 * <p>Setter for the field <code>apiRateLimit</code>.</p>
+	 *
+	 * @param apiRateLimit a {@link java.util.List} object.
+	 */
 	public void setApiRateLimit(List<ApiRateLimits> apiRateLimit) {
 		this.apiRateLimit = apiRateLimit;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "RateLimitStatus [ipLimit=" + ipLimit + ", remainingIpHits="

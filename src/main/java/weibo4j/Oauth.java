@@ -16,6 +16,12 @@ import weibo4j.org.json.JSONException;
 import weibo4j.org.json.JSONObject;
 import weibo4j.util.WeiboConfig;
 
+/**
+ * <p>Oauth class.</p>
+ *
+ * @author user1
+ * @version $Id: $Id
+ */
 public class Oauth extends Weibo {
 	/**
 	 * 
@@ -24,12 +30,26 @@ public class Oauth extends Weibo {
 	// ----------------------------针对站内应用处理SignedRequest获取accesstoken----------------------------------------
 	public String user_id;
 
+	/**
+	 * <p>getToken.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getToken() {
 		return access_token;
 	}
 
 	/*
 	 * 解析站内应用post的SignedRequest split为part1和part2两部分
+	 */
+	/**
+	 * <p>parseSignedRequest.</p>
+	 *
+	 * @param signed_request a {@link java.lang.String} object.
+	 * @return a {@link java.lang.String} object.
+	 * @throws java.io.IOException if any.
+	 * @throws java.security.InvalidKeyException if any.
+	 * @throws java.security.NoSuchAlgorithmException if any.
 	 */
 	public String parseSignedRequest(String signed_request) throws IOException,
 			InvalidKeyException, NoSuchAlgorithmException {
@@ -61,6 +81,12 @@ public class Oauth extends Weibo {
 	/*
 	 * 处理解析后的json解析
 	 */
+	/**
+	 * <p>ts.</p>
+	 *
+	 * @param json a {@link java.lang.String} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String ts(String json) {
 		try {
 			JSONObject jsonObject = new JSONObject(json);
@@ -75,6 +101,13 @@ public class Oauth extends Weibo {
 
 	/*----------------------------Oauth接口--------------------------------------*/
 
+	/**
+	 * <p>getAccessTokenByCode.</p>
+	 *
+	 * @param code a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.http.AccessToken} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public AccessToken getAccessTokenByCode(String code) throws WeiboException {
 		return new AccessToken(client.post(
 				WeiboConfig.getValue("accessTokenURL"),
@@ -89,6 +122,13 @@ public class Oauth extends Weibo {
 								.getValue("redirect_URI")) }, false, null));
 	}
 
+	/**
+	 * <p>authorize.</p>
+	 *
+	 * @param response_type a {@link java.lang.String} object.
+	 * @return a {@link java.lang.String} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public String authorize(String response_type) throws WeiboException {
 		return WeiboConfig.getValue("authorizeURL").trim() + "?client_id="
 				+ WeiboConfig.getValue("client_ID").trim() + "&redirect_uri="
@@ -96,6 +136,14 @@ public class Oauth extends Weibo {
 				+ "&response_type=" + response_type;
 	}
 
+	/**
+	 * <p>authorize.</p>
+	 *
+	 * @param response_type a {@link java.lang.String} object.
+	 * @param state a {@link java.lang.String} object.
+	 * @return a {@link java.lang.String} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public String authorize(String response_type, String state)
 			throws WeiboException {
 		return WeiboConfig.getValue("authorizeURL").trim() + "?client_id="
@@ -104,6 +152,15 @@ public class Oauth extends Weibo {
 				+ "&response_type=" + response_type + "&state=" + state;
 	}
 
+	/**
+	 * <p>authorize.</p>
+	 *
+	 * @param response_type a {@link java.lang.String} object.
+	 * @param state a {@link java.lang.String} object.
+	 * @param scope a {@link java.lang.String} object.
+	 * @return a {@link java.lang.String} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public String authorize(String response_type, String state, String scope)
 			throws WeiboException {
 		return WeiboConfig.getValue("authorizeURL").trim() + "?client_id="

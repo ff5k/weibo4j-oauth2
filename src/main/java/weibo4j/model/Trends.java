@@ -40,9 +40,10 @@ import java.util.Arrays;
 
 /**
  * A data class representing Treands.
- * 
+ *
  * @author Yusuke Yamamoto - yusuke at mac.com
  * @since weibo4j-V2 1.0.1
+ * @version $Id: $Id
  */
 public class Trends extends WeiboResponse implements Comparable<Trends> {
 	private Date asOf; // asof
@@ -50,6 +51,12 @@ public class Trends extends WeiboResponse implements Comparable<Trends> {
 	private Trend[] trends; // 话题对象
 	private static final long serialVersionUID = -7151479143843312309L;
 
+	/**
+	 * <p>compareTo.</p>
+	 *
+	 * @param that a {@link weibo4j.model.Trends} object.
+	 * @return a int.
+	 */
 	public int compareTo(Trends that) {
 		return this.trendAt.compareTo(that.trendAt);
 	}
@@ -63,6 +70,13 @@ public class Trends extends WeiboResponse implements Comparable<Trends> {
 	}
 
 	/* package */
+	/**
+	 * <p>constructTrendsList.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @return a {@link java.util.List} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public static List<Trends> constructTrendsList(Response res)
 			throws WeiboException {
 		JSONObject json = res.asJSONObject();
@@ -133,18 +147,34 @@ public class Trends extends WeiboResponse implements Comparable<Trends> {
 		return trends;
 	}
 
+	/**
+	 * <p>Getter for the field <code>trends</code>.</p>
+	 *
+	 * @return an array of {@link weibo4j.model.Trend} objects.
+	 */
 	public Trend[] getTrends() {
 		return this.trends;
 	}
 
+	/**
+	 * <p>Getter for the field <code>asOf</code>.</p>
+	 *
+	 * @return a {@link java.util.Date} object.
+	 */
 	public Date getAsOf() {
 		return asOf;
 	}
 
+	/**
+	 * <p>Getter for the field <code>trendAt</code>.</p>
+	 *
+	 * @return a {@link java.util.Date} object.
+	 */
 	public Date getTrendAt() {
 		return trendAt;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
@@ -165,6 +195,7 @@ public class Trends extends WeiboResponse implements Comparable<Trends> {
 		return true;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public int hashCode() {
 		int result = asOf != null ? asOf.hashCode() : 0;
@@ -173,6 +204,7 @@ public class Trends extends WeiboResponse implements Comparable<Trends> {
 		return result;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "Trends{" + "asOf=" + asOf + ", trendAt=" + trendAt

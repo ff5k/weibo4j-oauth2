@@ -12,16 +12,23 @@ package weibo4j.util;
 /////////////////////////////////////////////////////////
 
 /**
+ * <p>BareBonesBrowserLaunch class.</p>
+ *
  * @author Dem Pilafian
  * @author John Kristian
+ * @version $Id: $Id
  */
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import javax.swing.JOptionPane;
-
 public class BareBonesBrowserLaunch {
 
+    /**
+     * <p>openURL.</p>
+     *
+     * @param url a {@link java.lang.String} object.
+     */
     public static void openURL(String url) {
         try {
             browse(url);

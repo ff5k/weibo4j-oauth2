@@ -29,13 +29,30 @@ package weibo4j.http;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * <p>HTMLEntity class.</p>
+ *
+ * @author user1
+ * @version $Id: $Id
+ */
 public class HTMLEntity {
+    /**
+     * <p>escape.</p>
+     *
+     * @param original a {@link java.lang.String} object.
+     * @return a {@link java.lang.String} object.
+     */
     public static String escape(String original) {
         StringBuffer buf = new StringBuffer(original);
         escape(buf);
         return buf.toString();
     }
 
+    /**
+     * <p>escape.</p>
+     *
+     * @param original a {@link java.lang.StringBuffer} object.
+     */
     public static void escape(StringBuffer original) {
         int index = 0;
         String escaped;
@@ -50,12 +67,23 @@ public class HTMLEntity {
         }
     }
 
+    /**
+     * <p>unescape.</p>
+     *
+     * @param original a {@link java.lang.String} object.
+     * @return a {@link java.lang.String} object.
+     */
     public static String unescape(String original) {
         StringBuffer buf = new StringBuffer(original);
         unescape(buf);
         return buf.toString();
     }
 
+    /**
+     * <p>unescape.</p>
+     *
+     * @param original a {@link java.lang.StringBuffer} object.
+     */
     public static void unescape(StringBuffer original) {
         int index = 0;
         int semicolonIndex = 0;

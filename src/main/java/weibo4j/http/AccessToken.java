@@ -8,6 +8,12 @@ import weibo4j.org.json.JSONException;
 import weibo4j.org.json.JSONObject;
 
 
+/**
+ * <p>AccessToken class.</p>
+ *
+ * @author user1
+ * @version $Id: $Id
+ */
 public class AccessToken extends WeiboResponse implements Serializable {
 
 	private static final long serialVersionUID = 6986530164134648944L;
@@ -15,6 +21,12 @@ public class AccessToken extends WeiboResponse implements Serializable {
 	private String expireIn;
 	private String refreshToken;
 	private String uid;
+	/**
+	 * <p>Constructor for AccessToken.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public AccessToken(Response res) throws WeiboException{
 		super(res);
 		JSONObject json =res.asJSONObject();
@@ -35,15 +47,31 @@ public class AccessToken extends WeiboResponse implements Serializable {
 		refreshToken = json.getString("refresh_token");
 		uid = json.getString("uid");
 	}
+	/**
+	 * <p>Getter for the field <code>accessToken</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getAccessToken() {
 		return accessToken;
 	}
+	/**
+	 * <p>Getter for the field <code>expireIn</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getExpireIn() {
 		return expireIn;
 	}
+	/**
+	 * <p>Getter for the field <code>refreshToken</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getRefreshToken() {
 		return refreshToken;
 	}
+	/** {@inheritDoc} */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -56,6 +84,7 @@ public class AccessToken extends WeiboResponse implements Serializable {
 		+ ((refreshToken == null) ? 0 : refreshToken.hashCode());
 		return result;
 	}
+	/** {@inheritDoc} */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -82,6 +111,7 @@ public class AccessToken extends WeiboResponse implements Serializable {
 			return false;
 		return true;
 	}
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "AccessToken [" +

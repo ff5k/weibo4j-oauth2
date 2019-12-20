@@ -13,19 +13,30 @@ import weibo4j.org.json.JSONObject;
 import weibo4j.util.ArrayUtils;
 import weibo4j.util.WeiboConfig;
 
+/**
+ * <p>Account class.</p>
+ *
+ * @author user1
+ * @version $Id: $Id
+ */
 public class Account extends Weibo {
 
 	private static final long serialVersionUID = 3816005087976772682L;
 
+	/**
+	 * <p>Constructor for Account.</p>
+	 *
+	 * @param access_token a {@link java.lang.String} object.
+	 */
 	public Account(String access_token) {
 		this.access_token = access_token;
 	}
 
 	/**
 	 * OAuth授权之后，获取授权用户的UID
-	 * 
+	 *
 	 * @return uid
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @see http://open.weibo.com/wiki/2/account/get_uid
@@ -39,10 +50,9 @@ public class Account extends Weibo {
 
 	/**
 	 * 获取当前登录用户的隐私设置
-	 * 
-	 * @param uid
+	 *
 	 * @return User's privacy
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @see http://open.weibo.com/wiki/2/account/get_privacy
@@ -55,15 +65,14 @@ public class Account extends Weibo {
 
 	/**
 	 * 获取所有学校列表
-	 * 
-	 * @param province
-	 *            学校名称关键字
+	 *
 	 * @return list of school
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @see http://open.weibo.com/wiki/2/account/profile/school_list
 	 * @since JDK 1.5
+	 * @param keyword a {@link java.lang.String} object.
 	 */
 	public List<School> getAccountProfileSchoolList(String keyword)
 			throws WeiboException {
@@ -76,13 +85,13 @@ public class Account extends Weibo {
 
 	/**
 	 * 获取所有的学校列表
-	 * 
+	 *
 	 * @param province
 	 *            省份范围，省份ID
 	 * @param capital
 	 *            学校首字母
 	 * @return list of school
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/account/profile/school_list
@@ -99,11 +108,11 @@ public class Account extends Weibo {
 
 	/**
 	 * 获取所有的学校列表
-	 * 
+	 *
 	 * @param map
 	 *            参数列表
 	 * @return list of school
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/account/profile/school_list
@@ -119,9 +128,9 @@ public class Account extends Weibo {
 
 	/**
 	 * 获取当前登录用户的API访问频率限制情况
-	 * 
+	 *
 	 * @return rate limit
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.1
 	 * @see http://open.weibo.com/wiki/2/account/rate_limit_status
@@ -134,13 +143,13 @@ public class Account extends Weibo {
 
 	/**
 	 * 退出登录
-	 * 
-	 * @return
-	 * @throws WeiboException
+	 *
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/account/end_session
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.model.User} object.
 	 */
 	public User endSession() throws WeiboException {
 		return new User(client.get(WeiboConfig.getValue("baseURL")

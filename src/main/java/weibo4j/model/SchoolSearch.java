@@ -10,9 +10,9 @@ import weibo4j.org.json.JSONObject;
 
 /**
  * 搜学校搜索建议
- * 
+ *
  * @author xiaoV
- * 
+ * @version $Id: $Id
  */
 public class SchoolSearch extends WeiboResponse {
 
@@ -23,6 +23,12 @@ public class SchoolSearch extends WeiboResponse {
 	private long id;
 	private long type;
 
+	/**
+	 * <p>Constructor for SchoolSearch.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public SchoolSearch(Response res) throws WeiboException {
 		super(res);
 		JSONObject json = res.asJSONObject();
@@ -37,6 +43,12 @@ public class SchoolSearch extends WeiboResponse {
 		}
 	}
 
+	/**
+	 * <p>Constructor for SchoolSearch.</p>
+	 *
+	 * @param json a {@link weibo4j.org.json.JSONObject} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public SchoolSearch(JSONObject json) throws WeiboException {
 		try {
 			id = json.getInt("id");
@@ -49,6 +61,13 @@ public class SchoolSearch extends WeiboResponse {
 		}
 	}
 
+	/**
+	 * <p>constructSchoolSearch.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @return a {@link java.util.List} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public static List<SchoolSearch> constructSchoolSearch(Response res)
 			throws WeiboException {
 		try {
@@ -66,38 +85,79 @@ public class SchoolSearch extends WeiboResponse {
 		}
 	}
 
+	/**
+	 * <p>Getter for the field <code>schoolName</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getSchoolName() {
 		return schoolName;
 	}
 
+	/**
+	 * <p>Setter for the field <code>schoolName</code>.</p>
+	 *
+	 * @param schoolName a {@link java.lang.String} object.
+	 */
 	public void setSchoolName(String schoolName) {
 		this.schoolName = schoolName;
 	}
 
+	/**
+	 * <p>Getter for the field <code>location</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getLocation() {
 		return location;
 	}
 
+	/**
+	 * <p>Setter for the field <code>location</code>.</p>
+	 *
+	 * @param location a {@link java.lang.String} object.
+	 */
 	public void setLocation(String location) {
 		this.location = location;
 	}
 
+	/**
+	 * <p>Getter for the field <code>id</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getId() {
 		return id;
 	}
 
+	/**
+	 * <p>Setter for the field <code>id</code>.</p>
+	 *
+	 * @param id a long.
+	 */
 	public void setId(long id) {
 		this.id = id;
 	}
 
+	/**
+	 * <p>Getter for the field <code>type</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getType() {
 		return type;
 	}
 
+	/**
+	 * <p>Setter for the field <code>type</code>.</p>
+	 *
+	 * @param type a long.
+	 */
 	public void setType(long type) {
 		this.type = type;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "SchoolSearch [id=" + id

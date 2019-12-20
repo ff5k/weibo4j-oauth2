@@ -9,6 +9,12 @@ import weibo4j.org.json.JSONArray;
 import weibo4j.org.json.JSONException;
 import weibo4j.org.json.JSONObject;
 
+/**
+ * <p>Favorites class.</p>
+ *
+ * @author user1
+ * @version $Id: $Id
+ */
 public class Favorites extends WeiboResponse {
 
 	private static final long serialVersionUID = 3355536191107298448L;
@@ -16,6 +22,12 @@ public class Favorites extends WeiboResponse {
 	private Status status;                             //收藏的status
 	private List<FavoritesTag> tags;                   //收藏的tags
 	private static int totalNumber;
+	/**
+	 * <p>Constructor for Favorites.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public Favorites(Response res) throws WeiboException{
 		super(res);
 		JSONObject json = null;
@@ -52,6 +64,13 @@ public class Favorites extends WeiboResponse {
 		}
 
 	}
+	/**
+	 * <p>constructFavorites.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @return a {@link java.util.List} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public static List<Favorites> constructFavorites(Response res) throws WeiboException{
 		try {
 			JSONArray list = res.asJSONObject().getJSONArray("favorites");
@@ -67,30 +86,61 @@ public class Favorites extends WeiboResponse {
 		} 
 	}
 	
+	/**
+	 * <p>Getter for the field <code>status</code>.</p>
+	 *
+	 * @return a {@link weibo4j.model.Status} object.
+	 */
 	public Status getStatus() {
 		return status;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>status</code>.</p>
+	 *
+	 * @param status a {@link weibo4j.model.Status} object.
+	 */
 	public void setStatus(Status status) {
 		this.status = status;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>tags</code>.</p>
+	 *
+	 * @return a {@link java.util.List} object.
+	 */
 	public List<FavoritesTag> getTags() {
 		return tags;
 	}
 	
+	/**
+	 * <p>Setter for the field <code>tags</code>.</p>
+	 *
+	 * @param tags a {@link java.util.List} object.
+	 */
 	public void setTags(List<FavoritesTag> tags) {
 		this.tags = tags;
 	}
 
+	/**
+	 * <p>Getter for the field <code>favoritedTime</code>.</p>
+	 *
+	 * @return a {@link java.util.Date} object.
+	 */
 	public Date getFavoritedTime() {
 		return favoritedTime;
 	}
 
+	/**
+	 * <p>Setter for the field <code>favoritedTime</code>.</p>
+	 *
+	 * @param favoritedTime a {@link java.util.Date} object.
+	 */
 	public void setFavoritedTime(Date favoritedTime) {
 		this.favoritedTime = favoritedTime;
 	}
 	
+	/** {@inheritDoc} */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -99,6 +149,7 @@ public class Favorites extends WeiboResponse {
 		+ ((favoritedTime == null) ? 0 : favoritedTime.hashCode());
 		return result;
 	}
+	/** {@inheritDoc} */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -115,6 +166,7 @@ public class Favorites extends WeiboResponse {
 			return false;
 		return true;
 	}
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "Favorites [" +

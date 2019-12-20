@@ -6,9 +6,9 @@ import weibo4j.org.json.JSONObject;
 
 /**
  * 获取隐私设置信息
- * 
+ *
  * @author xiaoV
- * 
+ * @version $Id: $Id
  */
 public class Privacy extends WeiboResponse {
 
@@ -22,6 +22,12 @@ public class Privacy extends WeiboResponse {
 	private long profileUrlType;
 	private long webim; // 是否开启webim， 0：不开启、1：开启
 
+	/**
+	 * <p>Constructor for Privacy.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public Privacy(Response res) throws WeiboException {
 		super(res);
 		JSONObject json = res.asJSONObject();
@@ -40,6 +46,12 @@ public class Privacy extends WeiboResponse {
 		}
 	}
 
+	/**
+	 * <p>Constructor for Privacy.</p>
+	 *
+	 * @param json a {@link weibo4j.org.json.JSONObject} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public Privacy(JSONObject json) throws WeiboException {
 		try {
 			badge = json.getLong("badge");
@@ -56,70 +68,151 @@ public class Privacy extends WeiboResponse {
 		}
 	}
 
+	/**
+	 * <p>Getter for the field <code>badge</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getBadge() {
 		return badge;
 	}
 
+	/**
+	 * <p>Setter for the field <code>badge</code>.</p>
+	 *
+	 * @param badge a long.
+	 */
 	public void setBadge(long badge) {
 		this.badge = badge;
 	}
 
+	/**
+	 * <p>Getter for the field <code>comment</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getComment() {
 		return comment;
 	}
 
+	/**
+	 * <p>Setter for the field <code>comment</code>.</p>
+	 *
+	 * @param comment a long.
+	 */
 	public void setComment(long comment) {
 		this.comment = comment;
 	}
 
+	/**
+	 * <p>Getter for the field <code>geo</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getGeo() {
 		return geo;
 	}
 
+	/**
+	 * <p>Setter for the field <code>geo</code>.</p>
+	 *
+	 * @param geo a long.
+	 */
 	public void setGeo(long geo) {
 		this.geo = geo;
 	}
 
+	/**
+	 * <p>Getter for the field <code>message</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getMessage() {
 		return message;
 	}
 
+	/**
+	 * <p>Setter for the field <code>message</code>.</p>
+	 *
+	 * @param message a long.
+	 */
 	public void setMessage(long message) {
 		this.message = message;
 	}
 
+	/**
+	 * <p>Getter for the field <code>mobile</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getMobile() {
 		return mobile;
 	}
 
+	/**
+	 * <p>Setter for the field <code>mobile</code>.</p>
+	 *
+	 * @param mobile a long.
+	 */
 	public void setMobile(long mobile) {
 		this.mobile = mobile;
 	}
 
+	/**
+	 * <p>Getter for the field <code>realname</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getRealname() {
 		return realname;
 	}
 
+	/**
+	 * <p>Setter for the field <code>realname</code>.</p>
+	 *
+	 * @param realname a long.
+	 */
 	public void setRealname(long realname) {
 		this.realname = realname;
 	}
 
+	/**
+	 * <p>Getter for the field <code>profileUrlType</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getProfileUrlType() {
 		return profileUrlType;
 	}
 
+	/**
+	 * <p>Setter for the field <code>profileUrlType</code>.</p>
+	 *
+	 * @param profileUrlType a long.
+	 */
 	public void setProfileUrlType(long profileUrlType) {
 		this.profileUrlType = profileUrlType;
 	}
 
+	/**
+	 * <p>Getter for the field <code>webim</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getWebim() {
 		return webim;
 	}
 
+	/**
+	 * <p>Setter for the field <code>webim</code>.</p>
+	 *
+	 * @param webim a long.
+	 */
 	public void setWebim(long webim) {
 		this.webim = webim;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "Privacy [badge=" + badge

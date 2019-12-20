@@ -39,6 +39,7 @@ import weibo4j.org.json.JSONObject;
  *
  * @author Yusuke Yamamoto - yusuke at mac.com
  * @editor SinaWeibo
+ * @version $Id: $Id
  */
 public class IDs extends WeiboResponse {
     private long[] ids;           //ids
@@ -73,42 +74,56 @@ public class IDs extends WeiboResponse {
         
     }
 
+    /**
+     * <p>getIDs.</p>
+     *
+     * @return an array of {@link long} objects.
+     */
     public long[] getIDs() {
         return ids;
     }
 
     /**
+     * <p>hasPrevious.</p>
      *
      * @since weibo4j-V2 1.0.0
+     * @return a boolean.
      */
     public boolean hasPrevious(){
         return 0 != previousCursor;
     }
 
     /**
+     * <p>Getter for the field <code>previousCursor</code>.</p>
      *
      * @since weibo4j-V2 1.0.0
+     * @return a long.
      */
     public long getPreviousCursor() {
         return previousCursor;
     }
 
     /**
+     * <p>hasNext.</p>
      *
      * @since weibo4j-V2 1.0.0
+     * @return a boolean.
      */
     public boolean hasNext(){
         return 0 != nextCursor;
     }
 
     /**
+     * <p>Getter for the field <code>nextCursor</code>.</p>
      *
      * @since weibo4j-V2 1.0.0
+     * @return a long.
      */
     public long getNextCursor() {
         return nextCursor;
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -121,11 +136,13 @@ public class IDs extends WeiboResponse {
         return true;
     }
 
+    /** {@inheritDoc} */
     @Override
     public int hashCode() {
         return ids != null ? Arrays.hashCode(ids) : 0;
     }
 
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         return "IDs{" +

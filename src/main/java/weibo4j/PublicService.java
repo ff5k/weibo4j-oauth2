@@ -6,25 +6,36 @@ import weibo4j.org.json.JSONArray;
 import weibo4j.org.json.JSONObject;
 import weibo4j.util.WeiboConfig;
 
+/**
+ * <p>PublicService class.</p>
+ *
+ * @author user1
+ * @version $Id: $Id
+ */
 public class PublicService extends Weibo {
 
 	private static final long serialVersionUID = -2783541874923814897L;
 
+	/**
+	 * <p>Constructor for PublicService.</p>
+	 *
+	 * @param access_token a {@link java.lang.String} object.
+	 */
 	public PublicService(String access_token) {
 		this.access_token = access_token;
 	}
 
 	/**
 	 * 通过地址编码获取地址名称
-	 * 
+	 *
 	 * @param codes
 	 *            需要查询的地址编码，多个之间用逗号分隔
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/common/code_to_location
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.org.json.JSONArray} object.
 	 */
 	public JSONArray getLocationByCode(String codes) throws WeiboException {
 		return client.get(
@@ -36,19 +47,15 @@ public class PublicService extends Weibo {
 
 	/**
 	 * 获取省份列表
-	 * 
+	 *
 	 * @param country
 	 *            国家的国家代码
-	 * @param capital
-	 *            省份的首字母，a-z，可为空代表返回全部，默认为全部
-	 * @param language
-	 *            返回的语言版本，zh-cn：简体中文、zh-tw：繁体中文、english：英文，默认为zh-cn
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/common/get_province
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.org.json.JSONArray} object.
 	 */
 	public JSONArray provinceList(String country) throws WeiboException {
 		return client.get(
@@ -57,6 +64,14 @@ public class PublicService extends Weibo {
 				access_token).asJSONArray();
 	}
 
+	/**
+	 * <p>provinceListOfCapital.</p>
+	 *
+	 * @param country a {@link java.lang.String} object.
+	 * @param capital a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.org.json.JSONArray} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public JSONArray provinceListOfCapital(String country, String capital)
 			throws WeiboException {
 		return client.get(
@@ -66,6 +81,14 @@ public class PublicService extends Weibo {
 				.asJSONArray();
 	}
 
+	/**
+	 * <p>provinceList.</p>
+	 *
+	 * @param country a {@link java.lang.String} object.
+	 * @param language a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.org.json.JSONArray} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public JSONArray provinceList(String country, String language)
 			throws WeiboException {
 		return client
@@ -77,6 +100,15 @@ public class PublicService extends Weibo {
 						access_token).asJSONArray();
 	}
 
+	/**
+	 * <p>provinceList.</p>
+	 *
+	 * @param country a {@link java.lang.String} object.
+	 * @param capital a {@link java.lang.String} object.
+	 * @param language a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.org.json.JSONArray} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public JSONArray provinceList(String country, String capital,
 			String language) throws WeiboException {
 		return client
@@ -91,19 +123,15 @@ public class PublicService extends Weibo {
 
 	/**
 	 * 获取城市列表
-	 * 
+	 *
 	 * @param province
 	 *            省份的省份代码
-	 * @param capital
-	 *            城市的首字母，a-z，可为空代表返回全部，默认为全部
-	 * @param language
-	 *            返回的语言版本，zh-cn：简体中文、zh-tw：繁体中文、english：英文，默认为zh-cn
-	 * @return
-	 * @throws WeiboException
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/common/get_city
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.org.json.JSONArray} object.
 	 */
 	public JSONArray cityList(String province) throws WeiboException {
 		return client
@@ -112,6 +140,14 @@ public class PublicService extends Weibo {
 								province) }, access_token).asJSONArray();
 	}
 
+	/**
+	 * <p>cityListOfCapital.</p>
+	 *
+	 * @param province a {@link java.lang.String} object.
+	 * @param capital a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.org.json.JSONArray} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public JSONArray cityListOfCapital(String province, String capital)
 			throws WeiboException {
 		return client.get(
@@ -121,6 +157,14 @@ public class PublicService extends Weibo {
 				.asJSONArray();
 	}
 
+	/**
+	 * <p>cityList.</p>
+	 *
+	 * @param province a {@link java.lang.String} object.
+	 * @param language a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.org.json.JSONArray} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public JSONArray cityList(String province, String language)
 			throws WeiboException {
 		return client
@@ -131,6 +175,15 @@ public class PublicService extends Weibo {
 						access_token).asJSONArray();
 	}
 
+	/**
+	 * <p>cityList.</p>
+	 *
+	 * @param province a {@link java.lang.String} object.
+	 * @param capital a {@link java.lang.String} object.
+	 * @param language a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.org.json.JSONArray} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public JSONArray cityList(String province, String capital, String language)
 			throws WeiboException {
 		return client
@@ -144,17 +197,13 @@ public class PublicService extends Weibo {
 
 	/**
 	 * 获取国家列表
-	 * 
-	 * @param capital
-	 *            国家的首字母，a-z，可为空代表返回全部，默认为全部
-	 * @param language
-	 *            返回的语言版本，zh-cn：简体中文、zh-tw：繁体中文、english：英文，默认为zh-cn
-	 * @return
-	 * @throws WeiboException
+	 *
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/common/get_country
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.org.json.JSONArray} object.
 	 */
 	public JSONArray countryList() throws WeiboException {
 		return client.get(
@@ -162,6 +211,13 @@ public class PublicService extends Weibo {
 				access_token).asJSONArray();
 	}
 
+	/**
+	 * <p>countryListOfCapital.</p>
+	 *
+	 * @param capital a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.org.json.JSONArray} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public JSONArray countryListOfCapital(String capital) throws WeiboException {
 		return client.get(
 				WeiboConfig.getValue("baseURL") + "common/get_country.json",
@@ -169,6 +225,13 @@ public class PublicService extends Weibo {
 				access_token).asJSONArray();
 	}
 
+	/**
+	 * <p>countryList.</p>
+	 *
+	 * @param language a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.org.json.JSONArray} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public JSONArray countryList(String language) throws WeiboException {
 		return client
 				.get(WeiboConfig.getValue("baseURL")
@@ -177,6 +240,14 @@ public class PublicService extends Weibo {
 								language) }, access_token).asJSONArray();
 	}
 
+	/**
+	 * <p>countryList.</p>
+	 *
+	 * @param capital a {@link java.lang.String} object.
+	 * @param language a {@link java.lang.String} object.
+	 * @return a {@link weibo4j.org.json.JSONArray} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public JSONArray countryList(String capital, String language)
 			throws WeiboException {
 		return client
@@ -190,13 +261,13 @@ public class PublicService extends Weibo {
 
 	/**
 	 * 获取时区配置表
-	 * 
-	 * @return
-	 * @throws WeiboException
+	 *
+	 * @throws weibo4j.model.WeiboException
 	 *             when Weibo service or network is unavailable
 	 * @version weibo4j-V2 1.0.2
 	 * @see http://open.weibo.com/wiki/2/common/get_timezone
 	 * @since JDK 1.5
+	 * @return a {@link weibo4j.org.json.JSONObject} object.
 	 */
 	public JSONObject getTomeZone() throws WeiboException {
 		return client.get(

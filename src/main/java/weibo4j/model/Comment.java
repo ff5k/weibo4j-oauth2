@@ -9,6 +9,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * <p>Comment class.</p>
+ *
+ * @author user1
+ * @version $Id: $Id
+ */
 public class Comment extends WeiboResponse {
 
 	private static final long serialVersionUID = -6981150504900709672L;
@@ -22,6 +28,12 @@ public class Comment extends WeiboResponse {
 	private User user = null;                  //User对象
 	private Status status = null;              //Status对象
 
+	/**
+	 * <p>Constructor for Comment.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	/*package*/public Comment(Response res) throws WeiboException {
 		super(res);
 		JSONObject json =res.asJSONObject();
@@ -43,6 +55,13 @@ public class Comment extends WeiboResponse {
 		}
 	}
 
+	/**
+	 * <p>Constructor for Comment.</p>
+	 *
+	 * @param json a {@link weibo4j.org.json.JSONObject} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 * @throws weibo4j.org.json.JSONException if any.
+	 */
 	public Comment(JSONObject json)throws WeiboException, JSONException{
 		id = json.getLong("id");
 		mid = json.getString("mid");
@@ -58,6 +77,13 @@ public class Comment extends WeiboResponse {
 			replycomment = (new Comment(json.getJSONObject("reply_comment")));
 	}
 
+	/**
+	 * <p>Constructor for Comment.</p>
+	 *
+	 * @param str a {@link java.lang.String} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 * @throws weibo4j.org.json.JSONException if any.
+	 */
 	public Comment(String str) throws WeiboException, JSONException {
 		// StatusStream uses this constructor
 		super();
@@ -76,6 +102,13 @@ public class Comment extends WeiboResponse {
 			replycomment = (new Comment(json.getJSONObject("reply_comment")));
 	}
 
+	/**
+	 * <p>constructWapperComments.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @return a {@link weibo4j.model.CommentWapper} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public static CommentWapper constructWapperComments(Response res) throws WeiboException {
 		JSONObject json = res.asJSONObject(); //asJSONArray();
 		try {
@@ -95,6 +128,13 @@ public class Comment extends WeiboResponse {
 		}
 	}
 	
+	/**
+	 * <p>constructComment.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @return a {@link java.util.List} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public static List<Comment> constructComment(Response res)
 			throws WeiboException {
 
@@ -111,78 +151,169 @@ public class Comment extends WeiboResponse {
 		}
 	}
 	
+	/**
+	 * <p>Getter for the field <code>createdAt</code>.</p>
+	 *
+	 * @return a {@link java.util.Date} object.
+	 */
 	public Date getCreatedAt() {
 		return createdAt;
 	}
 
+	/**
+	 * <p>Getter for the field <code>id</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getId() {
 		return id;
 	}
 
+	/**
+	 * <p>Getter for the field <code>text</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getText() {
 		return text;
 	}
 
+	/**
+	 * <p>Getter for the field <code>source</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getSource() {
 		return source;
 	}
 
+	/**
+	 * <p>Getter for the field <code>replycomment</code>.</p>
+	 *
+	 * @return a {@link weibo4j.model.Comment} object.
+	 */
 	public Comment getReplycomment() {
 		return replycomment;
 	}
 
+	/**
+	 * <p>Getter for the field <code>user</code>.</p>
+	 *
+	 * @return a {@link weibo4j.model.User} object.
+	 */
 	public User getUser() {
 		return user;
 	}
 
+	/**
+	 * <p>Getter for the field <code>status</code>.</p>
+	 *
+	 * @return a {@link weibo4j.model.Status} object.
+	 */
 	public Status getStatus() {
 		return status;
 	}
 
+	/**
+	 * <p>Getter for the field <code>mid</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getMid() {
 		return mid;
 	}
 
+	/**
+	 * <p>Setter for the field <code>mid</code>.</p>
+	 *
+	 * @param mid a {@link java.lang.String} object.
+	 */
 	public void setMid(String mid) {
 		this.mid = mid;
 	}
 
+	/**
+	 * <p>Getter for the field <code>idstr</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getIdstr() {
 		return idstr;
 	}
 
+	/**
+	 * <p>Setter for the field <code>idstr</code>.</p>
+	 *
+	 * @param idstr a {@link java.lang.String} object.
+	 */
 	public void setIdstr(String idstr) {
 		this.idstr = idstr;
 	}
 
+	/**
+	 * <p>Setter for the field <code>createdAt</code>.</p>
+	 *
+	 * @param createdAt a {@link java.util.Date} object.
+	 */
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
 
+	/**
+	 * <p>Setter for the field <code>id</code>.</p>
+	 *
+	 * @param id a long.
+	 */
 	public void setId(long id) {
 		this.id = id;
 	}
 
+	/**
+	 * <p>Setter for the field <code>text</code>.</p>
+	 *
+	 * @param text a {@link java.lang.String} object.
+	 */
 	public void setText(String text) {
 		this.text = text;
 	}
 
+	/**
+	 * <p>Setter for the field <code>source</code>.</p>
+	 *
+	 * @param source a {@link java.lang.String} object.
+	 */
 	public void setSource(String source) {
 		this.source = source;
 	}
 
+	/**
+	 * <p>Setter for the field <code>replycomment</code>.</p>
+	 *
+	 * @param replycomment a {@link weibo4j.model.Comment} object.
+	 */
 	public void setReplycomment(Comment replycomment) {
 		this.replycomment = replycomment;
 	}
 
+	/**
+	 * <p>Setter for the field <code>user</code>.</p>
+	 *
+	 * @param user a {@link weibo4j.model.User} object.
+	 */
 	public void setUser(User user) {
 		this.user = user;
 	}
 
+	/**
+	 * <p>Setter for the field <code>status</code>.</p>
+	 *
+	 * @param status a {@link weibo4j.model.Status} object.
+	 */
 	public void setStatus(Status status) {
 		this.status = status;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -191,6 +322,7 @@ public class Comment extends WeiboResponse {
 		return result;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -205,6 +337,7 @@ public class Comment extends WeiboResponse {
 		return true;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "Comment [createdAt=" + createdAt + ", id=" + id + ", mid="

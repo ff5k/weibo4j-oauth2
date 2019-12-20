@@ -28,6 +28,7 @@ import java.util.Iterator;
 
 /**
  * Convert an HTTP header to a JSONObject and back.
+ *
  * @author JSON.org
  * @version 2008-09-18
  */
@@ -63,10 +64,11 @@ public class HTTP {
      * ...}</pre>
      * It does no further checking or conversion. It does not parse dates.
      * It does not do '%' transforms on URLs.
+     *
      * @param string An HTTP header string.
      * @return A JSONObject containing the elements and attributes
      * of the XML string.
-     * @throws JSONException
+     * @throws weibo4j.org.json.JSONException
      */
     public static JSONObject toJSONObject(String string) throws JSONException {
         JSONObject     o = new JSONObject();
@@ -119,9 +121,10 @@ public class HTTP {
      * }</pre>
      * Any other members of the JSONObject will be output as HTTP fields.
      * The result will end with two CRLF pairs.
+     *
      * @param o A JSONObject
      * @return An HTTP header string.
-     * @throws JSONException if the object does not contain enough
+     * @throws weibo4j.org.json.JSONException if the object does not contain enough
      *  information.
      */
     public static String toString(JSONObject o) throws JSONException {

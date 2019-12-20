@@ -13,6 +13,7 @@ import weibo4j.org.json.JSONObject;
  *
  * @author SinaWeibo
  * @since weibo4j-V2 1.0.0
+ * @version $Id: $Id
  */
 public class UserTrend extends WeiboResponse{
     private String num;               
@@ -20,9 +21,18 @@ public class UserTrend extends WeiboResponse{
     private String trendId = null;
     private static final long serialVersionUID = 1925956704460743946L;
  
+	/**
+	 * <p>Constructor for UserTrend.</p>
+	 */
 	public UserTrend() {
 		super();
 	}
+	/**
+	 * <p>Constructor for UserTrend.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public UserTrend(Response res) throws WeiboException {
 		super(res);
 		JSONObject json = res.asJSONObject();
@@ -37,6 +47,12 @@ public class UserTrend extends WeiboResponse{
 					je);
 		}
 	}
+	/**
+	 * <p>Constructor for UserTrend.</p>
+	 *
+	 * @param json a {@link weibo4j.org.json.JSONObject} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public UserTrend(JSONObject json) throws WeiboException {
 		try {
 			num = json.getString("num");
@@ -48,6 +64,13 @@ public class UserTrend extends WeiboResponse{
 		}
 	}
 	
+	/**
+	 * <p>constructTrendList.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @return a {@link java.util.List} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public static List<UserTrend> constructTrendList(Response res) throws WeiboException {
 	   	 try {
 	            JSONArray list = res.asJSONArray();
@@ -64,24 +87,55 @@ public class UserTrend extends WeiboResponse{
 	        }
 
 	   }
+	/**
+	 * <p>Getter for the field <code>num</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getNum() {
 		return num;
 	}
+	/**
+	 * <p>Setter for the field <code>num</code>.</p>
+	 *
+	 * @param num a {@link java.lang.String} object.
+	 */
 	public void setNum(String num) {
 		this.num = num;
 	}
+	/**
+	 * <p>Getter for the field <code>hotword</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getHotword() {
 		return hotword;
 	}
+	/**
+	 * <p>Setter for the field <code>hotword</code>.</p>
+	 *
+	 * @param hotword a {@link java.lang.String} object.
+	 */
 	public void setHotword(String hotword) {
 		this.hotword = hotword;
 	}
+	/**
+	 * <p>Getter for the field <code>trendId</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String gettrendId() {
 		return trendId;
 	}
+	/**
+	 * <p>Setter for the field <code>trendId</code>.</p>
+	 *
+	 * @param trendId a {@link java.lang.String} object.
+	 */
 	public void settrendId(String trendId) {
 		this.trendId = trendId;
 	}
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "Trend [num=" + num + ", hotword=" + hotword + ", trendId="

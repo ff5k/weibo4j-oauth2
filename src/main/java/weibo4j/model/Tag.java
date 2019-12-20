@@ -10,8 +10,10 @@ import weibo4j.org.json.JSONException;
 import weibo4j.org.json.JSONObject;
 
 /**
+ * <p>Tag class.</p>
+ *
  * @author sinaWeibo
- * 
+ * @version $Id: $Id
  */
 public class Tag extends WeiboResponse {
 
@@ -23,6 +25,13 @@ public class Tag extends WeiboResponse {
 	
 	private String weight;
 
+	/**
+	 * <p>Constructor for Tag.</p>
+	 *
+	 * @param json a {@link weibo4j.org.json.JSONObject} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 * @throws weibo4j.org.json.JSONException if any.
+	 */
 	public Tag(JSONObject json) throws WeiboException, JSONException {			
 			if (!json.getString("id").isEmpty()) {
 				id = json.getString("id"); 
@@ -38,6 +47,14 @@ public class Tag extends WeiboResponse {
 			}
 			weight= json.getString("weight");
 	}
+	/**
+	 * <p>Constructor for Tag.</p>
+	 *
+	 * @param json a {@link weibo4j.org.json.JSONObject} object.
+	 * @param weibo a {@link weibo4j.Weibo} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 * @throws weibo4j.org.json.JSONException if any.
+	 */
 	public Tag(JSONObject json , Weibo weibo) throws WeiboException,JSONException {
 		System.out.println(json);
 		id = json.getString("id");
@@ -46,6 +63,13 @@ public class Tag extends WeiboResponse {
 	}
 
 
+	/**
+	 * <p>constructTags.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @return a {@link java.util.List} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public static List<Tag> constructTags(Response res) throws WeiboException {
 		try {
 			JSONArray list = res.asJSONArray();
@@ -61,6 +85,12 @@ public class Tag extends WeiboResponse {
 			throw te;
 		}
 	}
+	/**
+	 * <p>constructTagWapper.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @return a {@link weibo4j.model.TagWapper} object.
+	 */
 	public static TagWapper constructTagWapper(Response res){
 		try {
 			JSONArray tags = res.asJSONArray();
@@ -77,6 +107,13 @@ public class Tag extends WeiboResponse {
 		}
 		return null;
 	}
+	/**
+	 * <p>constructTag.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @return a {@link java.util.List} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public static List<FavoritesTag> constructTag(Response res) throws WeiboException {
 		try {
 			JSONArray list = res.asJSONObject().getJSONArray("tags");
@@ -93,6 +130,7 @@ public class Tag extends WeiboResponse {
 		}
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -102,6 +140,7 @@ public class Tag extends WeiboResponse {
 		return result;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -125,30 +164,55 @@ public class Tag extends WeiboResponse {
 	}
 
 	/**
+	 * <p>Getter for the field <code>id</code>.</p>
+	 *
 	 * @return the id
 	 */
 	public String getId() {
 		return id;
 	}
 
+	/**
+	 * <p>Getter for the field <code>weight</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getWeight() {
 		return weight;
 	}
+	/**
+	 * <p>Setter for the field <code>weight</code>.</p>
+	 *
+	 * @param weight a {@link java.lang.String} object.
+	 */
 	public void setWeight(String weight) {
 		this.weight = weight;
 	}
+	/**
+	 * <p>Setter for the field <code>id</code>.</p>
+	 *
+	 * @param id a {@link java.lang.String} object.
+	 */
 	public void setId(String id) {
 		this.id = id;
 	}
+	/**
+	 * <p>Setter for the field <code>value</code>.</p>
+	 *
+	 * @param value a {@link java.lang.String} object.
+	 */
 	public void setValue(String value) {
 		this.value = value;
 	}
 	/**
+	 * <p>Getter for the field <code>value</code>.</p>
+	 *
 	 * @return the value
 	 */
 	public String getValue() {
 		return value;
 	}
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "Tag [id=" + id + ", value=" + value + ", weight=" + weight

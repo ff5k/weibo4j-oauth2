@@ -34,6 +34,7 @@ import weibo4j.org.json.JSONObject;
  *
  * @author Yusuke Yamamoto - yusuke at mac.com
  * @since Weibo4J 1.2.1
+ * @version $Id: $Id
  */
 public class Trend implements java.io.Serializable{
     private String name;
@@ -42,6 +43,12 @@ public class Trend implements java.io.Serializable{
     private long delta;
     private static final long serialVersionUID = 1925956704460743946L;
 
+    /**
+     * <p>Constructor for Trend.</p>
+     *
+     * @param json a {@link weibo4j.org.json.JSONObject} object.
+     * @throws weibo4j.org.json.JSONException if any.
+     */
     public Trend(JSONObject json) throws JSONException {
         this.name = json.getString("name");
         if (!json.isNull("query")) {
@@ -51,39 +58,80 @@ public class Trend implements java.io.Serializable{
         this.delta = json.getLong("delta");
     }
 
+    /**
+     * <p>Getter for the field <code>name</code>.</p>
+     *
+     * @return a {@link java.lang.String} object.
+     */
     public String getName() {
         return name;
     }
 
 
+    /**
+     * <p>Getter for the field <code>query</code>.</p>
+     *
+     * @return a {@link java.lang.String} object.
+     */
     public String getQuery() {
         return query;
     }
 
+    /**
+     * <p>Getter for the field <code>amount</code>.</p>
+     *
+     * @return a long.
+     */
     public long getAmount() {
 		return amount;
 	}
 
+	/**
+	 * <p>Setter for the field <code>amount</code>.</p>
+	 *
+	 * @param amount a long.
+	 */
 	public void setAmount(long amount) {
 		this.amount = amount;
 	}
 
+	/**
+	 * <p>Getter for the field <code>delta</code>.</p>
+	 *
+	 * @return a long.
+	 */
 	public long getDelta() {
 		return delta;
 	}
 
+	/**
+	 * <p>Setter for the field <code>delta</code>.</p>
+	 *
+	 * @param delta a long.
+	 */
 	public void setDelta(long delta) {
 		this.delta = delta;
 	}
 
+	/**
+	 * <p>Setter for the field <code>name</code>.</p>
+	 *
+	 * @param name a {@link java.lang.String} object.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	/**
+	 * <p>Setter for the field <code>query</code>.</p>
+	 *
+	 * @param query a {@link java.lang.String} object.
+	 */
 	public void setQuery(String query) {
 		this.query = query;
 	}
 
+	/** {@inheritDoc} */
 	@Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -98,6 +146,7 @@ public class Trend implements java.io.Serializable{
         return true;
     }
 
+    /** {@inheritDoc} */
     @Override
     public int hashCode() {
         int result = name.hashCode();
@@ -105,6 +154,7 @@ public class Trend implements java.io.Serializable{
         return result;
     }
 
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "Trend [name=" + name + ", query=" + query + ", amount="

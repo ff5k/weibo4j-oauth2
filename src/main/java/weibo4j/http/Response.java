@@ -54,6 +54,7 @@ import weibo4j.org.json.JSONObject;
  * A data class representing HTTP Response
  *
  * @author Yusuke Yamamoto - yusuke at mac.com
+ * @version $Id: $Id
  */
 public class Response {
     private final static boolean DEBUG = Configuration.getDebug();
@@ -81,9 +82,18 @@ public class Response {
     private HttpURLConnection con;
     private boolean streamConsumed = false;
 
+    /**
+     * <p>Constructor for Response.</p>
+     */
     public Response()  {
     	
     }
+    /**
+     * <p>Constructor for Response.</p>
+     *
+     * @param con a {@link java.net.HttpURLConnection} object.
+     * @throws java.io.IOException if any.
+     */
     public Response(HttpURLConnection con) throws IOException {
         this.con = con;
         this.statusCode = con.getResponseCode();
@@ -101,10 +111,21 @@ public class Response {
         this.responseAsString = content;
     }
 
+    /**
+     * <p>Getter for the field <code>statusCode</code>.</p>
+     *
+     * @return a int.
+     */
     public int getStatusCode() {
         return statusCode;
     }
 
+    /**
+     * <p>getResponseHeader.</p>
+     *
+     * @param name a {@link java.lang.String} object.
+     * @return a {@link java.lang.String} object.
+     */
     public String getResponseHeader(String name) {
     	if (con != null)
     		return con.getHeaderField(name);
@@ -118,8 +139,8 @@ public class Response {
      * It is suggested to call disconnect() after consuming the stream.
      *
      * Disconnects the internal HttpURLConnection silently.
+     *
      * @return response body stream
-     * @throws WeiboException
      * @see #disconnect()
      */
     public InputStream asStream() {
@@ -132,8 +153,9 @@ public class Response {
     /**
      * Returns the response body as string.<br>
      * Disconnects the internal HttpURLConnection silently.
+     *
      * @return response body
-     * @throws WeiboException
+     * @throws weibo4j.model.WeiboException
      */
     public String asString() throws WeiboException{
         if(null == responseAsString){
@@ -170,8 +192,9 @@ public class Response {
     /**
      * Returns the response body as org.w3c.dom.Document.<br>
      * Disconnects the internal HttpURLConnection silently.
+     *
      * @return response body as org.w3c.dom.Document
-     * @throws WeiboException
+     * @throws weibo4j.model.WeiboException
      */
     public Document asDocument() throws WeiboException {
         if (null == responseAsDocument) {
@@ -191,8 +214,9 @@ public class Response {
     /**
      * Returns the response body as sinat4j.org.json.JSONObject.<br>
      * Disconnects the internal HttpURLConnection silently.
+     *
      * @return response body as sinat4j.org.json.JSONObject
-     * @throws WeiboException
+     * @throws weibo4j.model.WeiboException
      */
     public JSONObject asJSONObject() throws WeiboException {
         try {
@@ -205,8 +229,9 @@ public class Response {
     /**
      * Returns the response body as sinat4j.org.json.JSONArray.<br>
      * Disconnects the internal HttpURLConnection silently.
+     *
      * @return response body as sinat4j.org.json.JSONArray
-     * @throws WeiboException
+     * @throws weibo4j.model.WeiboException
      */
     public JSONArray asJSONArray() throws WeiboException {
         try {
@@ -216,6 +241,11 @@ public class Response {
         }
     }
 
+    /**
+     * <p>asReader.</p>
+     *
+     * @return a {@link java.io.InputStreamReader} object.
+     */
     public InputStreamReader asReader() {
         try {
             return new InputStreamReader(is, "UTF-8");
@@ -224,6 +254,9 @@ public class Response {
         }
     }
 
+    /**
+     * <p>disconnect.</p>
+     */
     public void disconnect(){
         con.disconnect();
     }
@@ -232,8 +265,8 @@ public class Response {
 
     /**
      * Unescape UTF-8 escaped characters to string.
-     * @author pengjianq...@gmail.com
      *
+     * @author pengjianq...@gmail.com
      * @param original The string to be unescaped.
      * @return The unescaped string
      */
@@ -248,6 +281,7 @@ public class Response {
         return unescaped.toString();
     }
 
+    /** {@inheritDoc} */
     @Override
     public String toString() {
         if(null != responseAsString){
@@ -274,14 +308,29 @@ public class Response {
         }
     }
 
+	/**
+	 * <p>Getter for the field <code>responseAsString</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getResponseAsString() {
 		return responseAsString;
 	}
 
+	/**
+	 * <p>Setter for the field <code>responseAsString</code>.</p>
+	 *
+	 * @param responseAsString a {@link java.lang.String} object.
+	 */
 	public void setResponseAsString(String responseAsString) {
 		this.responseAsString = responseAsString;
 	}
 
+	/**
+	 * <p>Setter for the field <code>statusCode</code>.</p>
+	 *
+	 * @param statusCode a int.
+	 */
 	public void setStatusCode(int statusCode) {
 		this.statusCode = statusCode;
 	}

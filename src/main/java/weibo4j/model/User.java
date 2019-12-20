@@ -39,6 +39,9 @@ import weibo4j.org.json.JSONObject;
 
 /**
  * A data class representing Basic user information element
+ *
+ * @author user1
+ * @version $Id: $Id
  */
 public class User extends WeiboResponse {
 
@@ -74,148 +77,385 @@ public class User extends WeiboResponse {
 	private String verifiedReason;		  //认证原因
 	private String weihao;				  //微號
 	private String statusId;
+	/**
+	 * <p>getVerified_reason.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getVerified_reason() {
 		return verifiedReason;
 	}
+	/**
+	 * <p>setVerified_reason.</p>
+	 *
+	 * @param verifiedReason a {@link java.lang.String} object.
+	 */
 	public void setVerified_reason(String verifiedReason) {
 		this.verifiedReason = verifiedReason;
 	}
+	/**
+	 * <p>Setter for the field <code>id</code>.</p>
+	 *
+	 * @param id a {@link java.lang.String} object.
+	 */
 	public void setId(String id) {
 		this.id = id;
 	}
+	/**
+	 * <p>Setter for the field <code>screenName</code>.</p>
+	 *
+	 * @param screenName a {@link java.lang.String} object.
+	 */
 	public void setScreenName(String screenName) {
 		this.screenName = screenName;
 	}
+	/**
+	 * <p>Setter for the field <code>name</code>.</p>
+	 *
+	 * @param name a {@link java.lang.String} object.
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
+	/**
+	 * <p>Setter for the field <code>province</code>.</p>
+	 *
+	 * @param province a int.
+	 */
 	public void setProvince(int province) {
 		this.province = province;
 	}
+	/**
+	 * <p>Setter for the field <code>city</code>.</p>
+	 *
+	 * @param city a int.
+	 */
 	public void setCity(int city) {
 		this.city = city;
 	}
+	/**
+	 * <p>Setter for the field <code>location</code>.</p>
+	 *
+	 * @param location a {@link java.lang.String} object.
+	 */
 	public void setLocation(String location) {
 		this.location = location;
 	}
+	/**
+	 * <p>Setter for the field <code>description</code>.</p>
+	 *
+	 * @param description a {@link java.lang.String} object.
+	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	/**
+	 * <p>Setter for the field <code>url</code>.</p>
+	 *
+	 * @param url a {@link java.lang.String} object.
+	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	/**
+	 * <p>Setter for the field <code>profileImageUrl</code>.</p>
+	 *
+	 * @param profileImageUrl a {@link java.lang.String} object.
+	 */
 	public void setProfileImageUrl(String profileImageUrl) {
 		this.profileImageUrl = profileImageUrl;
 	}
+	/**
+	 * <p>Setter for the field <code>userDomain</code>.</p>
+	 *
+	 * @param userDomain a {@link java.lang.String} object.
+	 */
 	public void setUserDomain(String userDomain) {
 		this.userDomain = userDomain;
 	}
+	/**
+	 * <p>Setter for the field <code>gender</code>.</p>
+	 *
+	 * @param gender a {@link java.lang.String} object.
+	 */
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	/**
+	 * <p>Setter for the field <code>followersCount</code>.</p>
+	 *
+	 * @param followersCount a int.
+	 */
 	public void setFollowersCount(int followersCount) {
 		this.followersCount = followersCount;
 	}
+	/**
+	 * <p>Setter for the field <code>friendsCount</code>.</p>
+	 *
+	 * @param friendsCount a int.
+	 */
 	public void setFriendsCount(int friendsCount) {
 		this.friendsCount = friendsCount;
 	}
+	/**
+	 * <p>Setter for the field <code>statusesCount</code>.</p>
+	 *
+	 * @param statusesCount a int.
+	 */
 	public void setStatusesCount(int statusesCount) {
 		this.statusesCount = statusesCount;
 	}
+	/**
+	 * <p>Setter for the field <code>favouritesCount</code>.</p>
+	 *
+	 * @param favouritesCount a int.
+	 */
 	public void setFavouritesCount(int favouritesCount) {
 		this.favouritesCount = favouritesCount;
 	}
+	/**
+	 * <p>Setter for the field <code>createdAt</code>.</p>
+	 *
+	 * @param createdAt a {@link java.util.Date} object.
+	 */
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
 	}
+	/**
+	 * <p>Setter for the field <code>following</code>.</p>
+	 *
+	 * @param following a boolean.
+	 */
 	public void setFollowing(boolean following) {
 		this.following = following;
 	}
+	/**
+	 * <p>Setter for the field <code>verified</code>.</p>
+	 *
+	 * @param verified a boolean.
+	 */
 	public void setVerified(boolean verified) {
 		this.verified = verified;
 	}
+	/**
+	 * <p>Setter for the field <code>verifiedType</code>.</p>
+	 *
+	 * @param verifiedType a int.
+	 */
 	public void setVerifiedType(int verifiedType) {
 		this.verifiedType = verifiedType;
 	}
+	/**
+	 * <p>Setter for the field <code>allowAllActMsg</code>.</p>
+	 *
+	 * @param allowAllActMsg a boolean.
+	 */
 	public void setAllowAllActMsg(boolean allowAllActMsg) {
 		this.allowAllActMsg = allowAllActMsg;
 	}
+	/**
+	 * <p>Setter for the field <code>allowAllComment</code>.</p>
+	 *
+	 * @param allowAllComment a boolean.
+	 */
 	public void setAllowAllComment(boolean allowAllComment) {
 		this.allowAllComment = allowAllComment;
 	}
+	/**
+	 * <p>Setter for the field <code>followMe</code>.</p>
+	 *
+	 * @param followMe a boolean.
+	 */
 	public void setFollowMe(boolean followMe) {
 		this.followMe = followMe;
 	}
+	/**
+	 * <p>Setter for the field <code>avatarLarge</code>.</p>
+	 *
+	 * @param avatarLarge a {@link java.lang.String} object.
+	 */
 	public void setAvatarLarge(String avatarLarge) {
 		this.avatarLarge = avatarLarge;
 	}
+	/**
+	 * <p>Setter for the field <code>onlineStatus</code>.</p>
+	 *
+	 * @param onlineStatus a int.
+	 */
 	public void setOnlineStatus(int onlineStatus) {
 		this.onlineStatus = onlineStatus;
 	}
+	/**
+	 * <p>Setter for the field <code>status</code>.</p>
+	 *
+	 * @param status a {@link weibo4j.model.Status} object.
+	 */
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+	/**
+	 * <p>Setter for the field <code>biFollowersCount</code>.</p>
+	 *
+	 * @param biFollowersCount a int.
+	 */
 	public void setBiFollowersCount(int biFollowersCount) {
 		this.biFollowersCount = biFollowersCount;
 	}
+	/**
+	 * <p>Setter for the field <code>remark</code>.</p>
+	 *
+	 * @param remark a {@link java.lang.String} object.
+	 */
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+	/**
+	 * <p>Setter for the field <code>lang</code>.</p>
+	 *
+	 * @param lang a {@link java.lang.String} object.
+	 */
 	public void setLang(String lang) {
 		this.lang = lang;
 	}
 	
+	/**
+	 * <p>Getter for the field <code>weihao</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getWeihao() {
 		return weihao;
 	}
+	/**
+	 * <p>Setter for the field <code>weihao</code>.</p>
+	 *
+	 * @param weihao a {@link java.lang.String} object.
+	 */
 	public void setWeihao(String weihao) {
 		this.weihao = weihao;
 	}
 
+	/**
+	 * <p>Getter for the field <code>verifiedReason</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getVerifiedReason() {
 		return verifiedReason;
 	}
+	/**
+	 * <p>Setter for the field <code>verifiedReason</code>.</p>
+	 *
+	 * @param verifiedReason a {@link java.lang.String} object.
+	 */
 	public void setVerifiedReason(String verifiedReason) {
 		this.verifiedReason = verifiedReason;
 	}
+	/**
+	 * <p>Getter for the field <code>statusId</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getStatusId() {
 		return statusId;
 	}
+	/**
+	 * <p>Setter for the field <code>statusId</code>.</p>
+	 *
+	 * @param statusId a {@link java.lang.String} object.
+	 */
 	public void setStatusId(String statusId) {
 		this.statusId = statusId;
 	}
+	/**
+	 * <p>Getter for the field <code>url</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getUrl() {
 		return url;
 	}
+	/**
+	 * <p>Getter for the field <code>profileImageUrl</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getProfileImageUrl() {
 		return profileImageUrl;
 	}
+	/**
+	 * <p>Getter for the field <code>verifiedType</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getVerifiedType() {
 		return verifiedType;
 	}
+	/**
+	 * <p>isAllowAllActMsg.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isAllowAllActMsg() {
 		return allowAllActMsg;
 	}
+	/**
+	 * <p>isAllowAllComment.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isAllowAllComment() {
 		return allowAllComment;
 	}
+	/**
+	 * <p>isFollowMe.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isFollowMe() {
 		return followMe;
 	}
+	/**
+	 * <p>Getter for the field <code>avatarLarge</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getAvatarLarge() {
 		return avatarLarge;
 	}
+	/**
+	 * <p>Getter for the field <code>onlineStatus</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getOnlineStatus() {
 		return onlineStatus;
 	}
+	/**
+	 * <p>Getter for the field <code>biFollowersCount</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getBiFollowersCount() {
 		return biFollowersCount;
 	}
+	/**
+	 * <p>Constructor for User.</p>
+	 *
+	 * @param json a {@link weibo4j.org.json.JSONObject} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	/*package*/public User(JSONObject json) throws WeiboException {
 		super();
 		init(json);
 	}
 	
+	/**
+	 * <p>Constructor for User.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public User(Response res ) throws WeiboException {
 		super(res);
 		init(res.asJSONObject());
@@ -265,6 +505,13 @@ public class User extends WeiboResponse {
 		}
 	}
 	
+	/**
+	 * <p>constructIds.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @return an array of {@link java.lang.String} objects.
+	 * @throws weibo4j.model.WeiboException if any.
+	 */
 	public static String[] constructIds(Response res) throws WeiboException {
 	try {
 		JSONArray list = res.asJSONObject().getJSONArray("ids");
@@ -276,10 +523,11 @@ public class User extends WeiboResponse {
 	} 
 }
 	/**
-	 * 
-	 * @param res
-	 * @return
-	 * @throws WeiboException
+	 * <p>constructWapperUsers.</p>
+	 *
+	 * @param res a {@link weibo4j.http.Response} object.
+	 * @throws weibo4j.model.WeiboException
+	 * @return a {@link weibo4j.model.UserWapper} object.
 	 */
 	public static UserWapper constructWapperUsers(Response res) throws WeiboException {
 		JSONObject jsonUsers = res.asJSONObject(); //asJSONArray();
@@ -319,34 +567,74 @@ public class User extends WeiboResponse {
 		return null;
 	}
 
+	/**
+	 * <p>Getter for the field <code>id</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getId() {
 		return id;
 	}
 
+	/**
+	 * <p>Getter for the field <code>screenName</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getScreenName() {
 		return screenName;
 	}
 
+	/**
+	 * <p>Getter for the field <code>name</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * <p>Getter for the field <code>province</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getProvince() {
 		return province;
 	}
 
+	/**
+	 * <p>Getter for the field <code>city</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getCity() {
 		return city;
 	}
 
+	/**
+	 * <p>Getter for the field <code>location</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getLocation() {
 		return location;
 	}
 
+	/**
+	 * <p>Getter for the field <code>description</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getDescription() {
 		return description;
 	}
 
+	/**
+	 * <p>getProfileImageURL.</p>
+	 *
+	 * @return a {@link java.net.URL} object.
+	 */
 	public URL getProfileImageURL() {
 		try {
 			return new URL(profileImageUrl);
@@ -355,6 +643,11 @@ public class User extends WeiboResponse {
 		}
 	}
 
+	/**
+	 * <p>getURL.</p>
+	 *
+	 * @return a {@link java.net.URL} object.
+	 */
 	public URL getURL() {
 		try {
 			return new URL(url);
@@ -363,82 +656,178 @@ public class User extends WeiboResponse {
 		}
 	}
 
+	/**
+	 * <p>Getter for the field <code>userDomain</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getUserDomain() {
 		return userDomain;
 	}
 
+	/**
+	 * <p>Getter for the field <code>gender</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getGender() {
 		return gender;
 	}
 
+	/**
+	 * <p>Getter for the field <code>followersCount</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getFollowersCount() {
 		return followersCount;
 	}
 
+	/**
+	 * <p>Getter for the field <code>friendsCount</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getFriendsCount() {
 		return friendsCount;
 	}
 
+	/**
+	 * <p>Getter for the field <code>statusesCount</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getStatusesCount() {
 		return statusesCount;
 	}
 
+	/**
+	 * <p>Getter for the field <code>favouritesCount</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getFavouritesCount() {
 		return favouritesCount;
 	}
 
+	/**
+	 * <p>Getter for the field <code>createdAt</code>.</p>
+	 *
+	 * @return a {@link java.util.Date} object.
+	 */
 	public Date getCreatedAt() {
 		return createdAt;
 	}
 
+	/**
+	 * <p>isFollowing.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isFollowing() {
 		return following;
 	}
 
+	/**
+	 * <p>isVerified.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isVerified() {
 		return verified;
 	}
 
+	/**
+	 * <p>Getter for the field <code>verifiedType</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getverifiedType() {
 		return verifiedType;
 	}
 
+	/**
+	 * <p>isallowAllActMsg.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isallowAllActMsg() {
 		return allowAllActMsg;
 	}
 
+	/**
+	 * <p>isallowAllComment.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isallowAllComment() {
 		return allowAllComment;
 	}
 
+	/**
+	 * <p>isfollowMe.</p>
+	 *
+	 * @return a boolean.
+	 */
 	public boolean isfollowMe() {
 		return followMe;
 	}
 
+	/**
+	 * <p>Getter for the field <code>avatarLarge</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getavatarLarge() {
 		return avatarLarge;
 	}
 
+	/**
+	 * <p>Getter for the field <code>onlineStatus</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getonlineStatus() {
 		return onlineStatus;
 	}
 
+	/**
+	 * <p>Getter for the field <code>status</code>.</p>
+	 *
+	 * @return a {@link weibo4j.model.Status} object.
+	 */
 	public Status getStatus() {
 		return status;
 	}
 
+	/**
+	 * <p>Getter for the field <code>biFollowersCount</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getbiFollowersCount() {
 		return biFollowersCount;
 	}
 
+	/**
+	 * <p>Getter for the field <code>remark</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getRemark() {
 		return remark;
 	}
 
+	/**
+	 * <p>Getter for the field <code>lang</code>.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
+	 */
 	public String getLang() {
 		return lang;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -446,6 +835,7 @@ public class User extends WeiboResponse {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+	/** {@inheritDoc} */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -462,6 +852,7 @@ public class User extends WeiboResponse {
 			return false;
 		return true;
 	}
+	/** {@inheritDoc} */
 	@Override
 	public String toString() {
 		return "User [" +
